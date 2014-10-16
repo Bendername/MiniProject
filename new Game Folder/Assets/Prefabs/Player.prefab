@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdaf4fa8de2cf04aa72c23bedcc5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneCount: 50
+  maxDrones: 20
   spawnRadius: 100
   drones: []
   swarmBounds: {x: 300, y: 300}

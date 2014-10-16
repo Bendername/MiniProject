@@ -25,7 +25,7 @@ public class Despawner : MonoBehaviour {
     {
         if (other.gameObject.tag != "Drone")
         {
-            other.transform.position += new Vector3(0, 0, 60);
+            other.transform.position += new Vector3(0, 0, 100);
 
             if (other.name == "grotto")
             {

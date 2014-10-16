@@ -16,8 +16,5 @@ public class PlayerControl : MonoBehaviour {
         Vector3 rotation = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * rotationSpeed * Time.deltaTime;
         transform.Rotate(rotation);
         transform.position += transform.forward * Time.deltaTime * movementSpeed;
-
-        if (Input.GetKeyDown(KeyCode.Space))
-            GetComponentInChildren<SwarmBehaviour>().AddDrone();
 	}
 }

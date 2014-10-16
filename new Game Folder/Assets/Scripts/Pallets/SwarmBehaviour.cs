@@ -35,6 +35,7 @@ public class SwarmBehaviour : MonoBehaviour
 
     public void AddDrone()
     {
+        Debug.Log("test");
         AddDrones(1);
     }
 

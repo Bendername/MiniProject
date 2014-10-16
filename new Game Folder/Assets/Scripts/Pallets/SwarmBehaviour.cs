@@ -7,7 +7,9 @@ public class SwarmBehaviour : MonoBehaviour
     /// <summary>
     /// the number of drones we want in this swarm
     /// </summary>
-    public int droneCount = 50;
+    [SerializeField]
+    private int maxDrones;
+
     public float spawnRadius = 100f;
     public List<GameObject> drones;
 
@@ -26,12 +28,31 @@ public class SwarmBehaviour : MonoBehaviour
         }
 
         // instantiate the drones
-        GameObject droneTemp;
+        
         drones = new List<GameObject>();
-        for (int i = 0; i < droneCount; i++)
+        
+    }
+
+    public void AddDrone()
+    {
+        AddDrones(1);
+    }
+
+    public void RemoveDrone()
+    {
+        RemoveDrones(1);
+    }
+
+    public void AddDrones(int amount)
+    {
+        GameObject droneTemp;
+        if (drones.Count + amount > maxDrones)
+            amount = maxDrones - drones.Count;
+
+        for (int i = 0; i < amount; i++)
         {
             droneTemp = (GameObject)Instantiate(prefab, Vector3.zero, new Quaternion());
-            Debug.Log(droneTemp);
+        
             DroneBehaviour db = droneTemp.GetComponent<DroneBehaviour>();
             db.drones = this.drones;
             db.swarm = this;
@@ -44,6 +65,18 @@ public class SwarmBehaviour : MonoBehaviour
             drones.Add(droneTemp);
         }
     }
+
+    public void RemoveDrones(int amount)
+    {
+        List<GameObject> dronesToRemove = drones.GetRange(0, amount > drones.Count ? drones.Count : amount );
+        foreach (GameObject drone in dronesToRemove)
+        {
+            drones.Remove(drone);
+            Destroy(drone);
+        }
+    }
+
+    
 
     // Update is called once per frame
     protected virtual void Update()

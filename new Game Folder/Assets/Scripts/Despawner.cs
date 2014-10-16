@@ -5,6 +5,9 @@ public class Despawner : MonoBehaviour {
 
     public GameObject groundPrefab;
 
+    [SerializeField]
+    GameObject TestEnemy;
+
 	// Use this for initialization
 	void Start () {
 	
@@ -21,6 +24,8 @@ public class Despawner : MonoBehaviour {
 
         
         Instantiate(groundPrefab, new Vector3(0,0,other.gameObject.transform.position.z + 60), new Quaternion());
+        Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 60), new Quaternion());
+
         Debug.Log("After instantiate");
         Destroy(other.gameObject);
     }

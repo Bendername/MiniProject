@@ -22,11 +22,17 @@ public class Despawner : MonoBehaviour {
     {
         Debug.Log("BOOM!");
 
-        
-        Instantiate(groundPrefab, new Vector3(0,0,other.gameObject.transform.position.z + 60), new Quaternion());
-        Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 60), new Quaternion());
+        if (other.gameObject.tag != "Drone")
+        {
+            Instantiate(groundPrefab, new Vector3(0, 0, other.gameObject.transform.position.z + 60), new Quaternion());
+            Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 60), new Quaternion());
 
-        Debug.Log("After instantiate");
-        Destroy(other.gameObject);
+            Debug.Log("After instantiate");
+            Destroy(other.gameObject);
+        }
+        else
+        {
+            Debug.Log("Hit drone");
+        }
     }
 }

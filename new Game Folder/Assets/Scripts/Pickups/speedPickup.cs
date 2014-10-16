@@ -3,12 +3,10 @@ using System.Collections;
 
 public class speedPickup : PickupBase {
 
-    public GameObject player;
-
     public override void OnPickedUp()
     {
 
-        player.GetComponent<PlayerControl>().movementSpeed *= 5;
+       GameObject.Find("Player").GetComponent<PlayerControl>().movementSpeed *= 5;
 
     }
 }

@@ -13,10 +13,10 @@ SceneSettings:
 --- !u!104 &2
 RenderSettings:
   m_Fog: 1
-  m_FogColor: {r: .191176474, g: .191176474, b: .191176474, a: 1}
-  m_FogMode: 3
+  m_FogColor: {r: .198529422, g: .198529422, b: .198529422, a: 1}
+  m_FogMode: 2
   m_FogDensity: .100000001
-  m_LinearFogStart: 0
+  m_LinearFogStart: 100
   m_LinearFogEnd: 300
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
   m_SkyboxMaterial: {fileID: 0}
@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cdaf4fa8de2cf04aa72c23bedcc5b3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droneCount: 50
+  maxDrones: 20
   spawnRadius: 5
   drones: []
   swarmBounds: {x: 10, y: 10}
@@ -961,6 +961,26 @@ Prefab:
     - target: {fileID: 11400002, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
       propertyPath: movementSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: m_BackGroundColor.r
+      value: .198529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: m_BackGroundColor.g
+      value: .198529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 2000000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: m_BackGroundColor.b
+      value: .198529422
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: powerUp
+      value: 
+      objectReference: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
+    - target: {fileID: 11400000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: spawnchance
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
@@ -1754,7 +1774,7 @@ Transform:
   m_GameObject: {fileID: 1318619823}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: .997730017, z: 0}
-  m_LocalScale: {x: .100000001, y: .100000001, z: .100000001}
+  m_LocalScale: {x: .400000006, y: .400000006, z: .400000006}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1914,7 +1934,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .191176474, g: .191176474, b: .191176474, a: .0196078438}
+  m_BackGroundColor: {r: .198529422, g: .198529422, b: .198529422, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2182,7 +2202,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
+  spawnchance: 100
   TestEnemy: {fileID: 100000, guid: 97bc079da7b49cb449b68b55ba60cda0, type: 2}
+  powerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
 --- !u!65 &1850694429
 BoxCollider:
   m_ObjectHideFlags: 0

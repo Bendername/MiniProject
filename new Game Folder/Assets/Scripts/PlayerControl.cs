@@ -11,14 +11,16 @@ public class PlayerControl : MonoBehaviour {
     
     void Awake()
     {
-        rotationSpeed = GameMaster.GetPlayerValues().rotationSpeed;
-        movementSpeed = GameMaster.GetPlayerValues().movementSpeed;
+        
         staticRef = this;
     }
 
 	// Use this for initialization
 	void Start () {
+        rotationSpeed = GameMaster.GetPlayerValues().rotationSpeed;
+        movementSpeed = GameMaster.GetPlayerValues().movementSpeed;
         swarm = GetComponentInChildren<SwarmBehaviour>();
+        
 	}
 	
 	// Update is called once per frame

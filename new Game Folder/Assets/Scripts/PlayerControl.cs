@@ -2,14 +2,16 @@
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
-
-    private float rotationSpeed = 50f;
-    public float movementSpeed = 5f;
+    
+    private float rotationSpeed;
+    private float movementSpeed;
     private float moveSpeedBonus = 0f;
     static PlayerControl staticRef;
     
     void Awake()
     {
+        rotationSpeed = GameMaster.GetPlayerValues().rotationSpeed;
+        movementSpeed = GameMaster.GetPlayerValues().movementSpeed;
         staticRef = this;
     }
 

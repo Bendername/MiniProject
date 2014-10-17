@@ -4,8 +4,6 @@ using System.Collections;
 public class Despawner : MonoBehaviour {
 
     public GameObject groundPrefab;
-    [Tooltip("Spawn chance in %")]
-    public float spawnchance = 10;
 
     [SerializeField]
     GameObject TestEnemy;
@@ -32,7 +30,7 @@ public class Despawner : MonoBehaviour {
                 Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
                 int rng = Random.Range(0, 100);
                 Debug.Log(rng);
-                if (rng < spawnchance)
+                if (rng < GameMaster.GetPowerUpValues().spawnChancePercent)
                 {
                     Instantiate(powerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
                 }

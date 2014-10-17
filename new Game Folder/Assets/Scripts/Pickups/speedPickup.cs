@@ -8,5 +8,6 @@ public class speedPickup : PickupBase {
 
         PlayerControl.AddMoveSpeedBonus(GameMaster.GetPowerUpValues().speedBuffModifier);
         PlayerControl.GetBgMusic().pitch += 0.05f;
+        UIScoring.IncreaseSpeedMultiplier();
     }
 }

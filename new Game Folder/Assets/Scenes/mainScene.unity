@@ -1889,6 +1889,8 @@ RectTransform:
   - {fileID: 1487501054}
   - {fileID: 1216730250}
   - {fileID: 1644310778}
+  - {fileID: 1622571632}
+  - {fileID: 2049535892}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_AnchorMin: {x: 0, y: 0}
@@ -1966,6 +1968,14 @@ Prefab:
     - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
       propertyPath: m_RootOrder
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: scoring.scoreToTime
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: player.movementSpeed
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
@@ -2701,6 +2711,10 @@ Prefab:
       propertyPath: endScreen
       value: 
       objectReference: {fileID: 1630428131}
+    - target: {fileID: 100002, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: m_TagString
+      value: Despawner
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
   m_RootGameObject: {fileID: 2015686922}
@@ -2794,6 +2808,72 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2015686923}
   m_RootOrder: 0
+--- !u!1 &1622571631
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1622571632}
+  - 222: {fileID: 1622571634}
+  - 114: {fileID: 1622571633}
+  m_Layer: 5
+  m_Name: combo_text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1622571632
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622571631}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .5, y: .5, z: .5}
+  m_Children: []
+  m_Father: {fileID: 1029121658}
+  m_RootOrder: 4
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 68, y: -114.900002}
+  m_SizeDelta: {x: 191.600006, y: 53.7999992}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &1622571633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622571631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Mat: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 41
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Combo:'
+--- !u!222 &1622571634
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1622571631}
 --- !u!1 &1630428131
 GameObject:
   m_ObjectHideFlags: 0
@@ -3211,7 +3291,7 @@ GameObject:
   - 114: {fileID: 1850694428}
   m_Layer: 0
   m_Name: Despawner
-  m_TagString: Untagged
+  m_TagString: Despawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3288,15 +3368,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player:
-    movementSpeed: 10
+    movementSpeed: 25
     rotationSpeed: 50
   powerUps:
     spawnChancePercent: 10
     speedBuffModifier: 5
     experienceBonusModifier: 10
   scoring:
-    scoreToTime: 2
+    scoreToTime: 1
     scorePerBoid: 5
+    BoidComboMultiplier: .100000001
+    SpeedMultiplier: .100000001
 --- !u!4 &1963854457
 Transform:
   m_ObjectHideFlags: 0
@@ -3320,8 +3402,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f64e254cd50b9cc459f3a677da51d3a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  score: {fileID: 1487501055}
-  boids: {fileID: 1644310776}
+  scoreText: {fileID: 1487501055}
+  boidsText: {fileID: 1644310776}
+  comboText: {fileID: 2049535893}
 --- !u!1 &1979348096
 GameObject:
   m_ObjectHideFlags: 0
@@ -3518,3 +3601,69 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!1 &2049535891
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 2049535892}
+  - 222: {fileID: 2049535894}
+  - 114: {fileID: 2049535893}
+  m_Layer: 5
+  m_Name: combo_num
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2049535892
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049535891}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1029121658}
+  m_RootOrder: 5
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 161.699997, y: -114.900002}
+  m_SizeDelta: {x: 130, y: 30}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &2049535893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049535891}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Mat: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 24
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 00000
+--- !u!222 &2049535894
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2049535891}

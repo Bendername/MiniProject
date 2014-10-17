@@ -34,9 +34,19 @@ public class PickupBase : MonoBehaviour
             OnPickedUp();
             Destroy(gameObject);
         }
+        else if (other.tag == "Despawner")
+        {
+            OnNotPickupUp();
+            Destroy(gameObject);
+        }
     }
 
     public virtual void OnPickedUp()
+    {
+
+    }
+
+    public virtual void OnNotPickupUp()
     {
 
     }

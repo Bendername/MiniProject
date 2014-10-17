@@ -30,8 +30,10 @@ public class GameMaster : MonoBehaviour {
     [System.Serializable]
     public class Scoring
     {
-        public int scoreToTime = 2;
-        public int scorePerBoid = 5;
+        public float scoreToTime = 0.1f;
+        public float scorePerBoid = 5;
+        public float BoidComboMultiplier = 0.1f;
+        public float SpeedMultiplier = 0.1f;
     }
 
     public static PowerUps GetPowerUpValues()

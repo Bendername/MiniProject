@@ -5,6 +5,7 @@ public class boidPickup : PickupBase {
 
     public override void OnPickedUp()
     {
+        UIScoring.ComboBoid();
         PlayerControl.AddDrone();
 
         GameObject[] g = GameObject.FindGameObjectsWithTag("Grotto");
@@ -14,5 +15,10 @@ public class boidPickup : PickupBase {
             ga.GetComponent<CrazyTown>().ChangeMaterial();
         }
         
+    }
+
+    public override void OnNotPickupUp()
+    {
+        UIScoring.EndCombo();
     }
 }

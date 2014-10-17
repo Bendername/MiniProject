@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour {
     private float rotationSpeed;
     private float movementSpeed;
     private float moveSpeedBonus = 0f;
+    private float aliveTime = 0f;
     SwarmBehaviour swarm;
     AudioSource bgMusic;
 
@@ -31,6 +32,7 @@ public class PlayerControl : MonoBehaviour {
         transform.Rotate(rotation);
         rigidbody.velocity = transform.forward * (movementSpeed + moveSpeedBonus);
         //transform.position += transform.forward * Time.deltaTime * (movementSpeed + moveSpeedBonus);
+        aliveTime += Time.deltaTime;
 	}
 
     public static void AddMoveSpeedBonus(float bonus)
@@ -51,5 +53,14 @@ public class PlayerControl : MonoBehaviour {
     public static AudioSource GetBgMusic()
     {
         return staticRef.bgMusic;
+    }
+
+    public static int DroneCount()
+    {
+        return staticRef.swarm.drones.Count;
+    }
+    public static float GetAliveTime()
+    {
+        return staticRef.aliveTime;
     }
 }

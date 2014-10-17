@@ -22,7 +22,6 @@ public class EnemyBase : MonoBehaviour {
         }
         else if (hitBy.GetComponent<Despawner>())
         {
-            Debug.Log("test");
             Destroy(gameObject);
         }
     }

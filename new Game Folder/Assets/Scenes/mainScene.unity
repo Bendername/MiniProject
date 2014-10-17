@@ -2079,7 +2079,7 @@ GameObject:
   - 4: {fileID: 1963854457}
   - 114: {fileID: 1963854456}
   m_Layer: 0
-  m_Name: GameMaster_V2
+  m_Name: GameMaster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

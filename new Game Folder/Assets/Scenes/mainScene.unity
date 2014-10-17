@@ -12,12 +12,12 @@ SceneSettings:
     backfaceThreshold: 100
 --- !u!104 &2
 RenderSettings:
-  m_Fog: 1
-  m_FogColor: {r: .198529422, g: .198529422, b: .198529422, a: 1}
+  m_Fog: 0
+  m_FogColor: {r: .98620677, g: 1, b: 0, a: 1}
   m_FogMode: 2
-  m_FogDensity: .100000001
-  m_LinearFogStart: 100
-  m_LinearFogEnd: 300
+  m_FogDensity: .0399999991
+  m_LinearFogStart: 0
+  m_LinearFogEnd: 303.869995
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: .5
@@ -400,6 +400,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
+      propertyPath: m_TagString
+      value: Grotto
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
   m_RootGameObject: {fileID: 1078114980}
@@ -532,6 +536,10 @@ Prefab:
     - target: {fileID: 400004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
+      propertyPath: m_TagString
+      value: Grotto
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
@@ -844,6 +852,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
+      propertyPath: m_TagString
+      value: Grotto
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
   m_RootGameObject: {fileID: 1408613721}
@@ -1136,15 +1148,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
       propertyPath: m_BackGroundColor.r
-      value: .198529422
+      value: .986207008
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
       propertyPath: m_BackGroundColor.g
-      value: .198529422
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2000000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
       propertyPath: m_BackGroundColor.b
-      value: .198529422
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
       propertyPath: powerUp
@@ -1346,9 +1358,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 830386292}
   - 65: {fileID: 830386291}
+  - 114: {fileID: 830386293}
   m_Layer: 0
   m_Name: grotto
-  m_TagString: Untagged
+  m_TagString: Grotto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1382,6 +1395,25 @@ Transform:
   - {fileID: 135472085}
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &830386293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b5de6b0d82354ed4ba132ea2be1ce2be,
+    type: 2}
+  m_PrefabInternal: {fileID: 892483011}
+  m_GameObject: {fileID: 830386290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9472b484507c2be439635fa8731d9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fb37c29da2dc6f84ba98e4a55630859c, type: 2}
+  - {fileID: 2100000, guid: 0bacfb6b241270a4fa8a6e87c7569a94, type: 2}
+  - {fileID: 2100000, guid: 17901538cd719fe43a9abd1eb3fa6781, type: 2}
+  - {fileID: 2100000, guid: 028e5d354f0aeba4bbce16f613f8f520, type: 2}
+  - {fileID: 2100000, guid: a6c25495dc624c649ac6676ea3cd78ad, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
 --- !u!1 &839016937
 GameObject:
   m_ObjectHideFlags: 0
@@ -1391,9 +1423,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 839016938}
   - 65: {fileID: 839016939}
+  - 114: {fileID: 839016940}
   m_Layer: 0
   m_Name: grotto
-  m_TagString: Untagged
+  m_TagString: Grotto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1427,6 +1460,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 1}
   m_Center: {x: 0, y: 5, z: 5}
+--- !u!114 &839016940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b5de6b0d82354ed4ba132ea2be1ce2be,
+    type: 2}
+  m_PrefabInternal: {fileID: 1143279884}
+  m_GameObject: {fileID: 839016937}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9472b484507c2be439635fa8731d9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fb37c29da2dc6f84ba98e4a55630859c, type: 2}
+  - {fileID: 2100000, guid: 0bacfb6b241270a4fa8a6e87c7569a94, type: 2}
+  - {fileID: 2100000, guid: 17901538cd719fe43a9abd1eb3fa6781, type: 2}
+  - {fileID: 2100000, guid: 028e5d354f0aeba4bbce16f613f8f520, type: 2}
+  - {fileID: 2100000, guid: a6c25495dc624c649ac6676ea3cd78ad, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
 --- !u!1001 &892483011
 Prefab:
   m_ObjectHideFlags: 0
@@ -1465,6 +1517,10 @@ Prefab:
     - target: {fileID: 400004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
+      propertyPath: m_TagString
+      value: Grotto
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
@@ -1791,9 +1847,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1078114981}
   - 65: {fileID: 1078114982}
+  - 114: {fileID: 1078114983}
   m_Layer: 0
   m_Name: grotto
-  m_TagString: Untagged
+  m_TagString: Grotto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1827,6 +1884,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 1}
   m_Center: {x: 0, y: 5, z: 5}
+--- !u!114 &1078114983
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b5de6b0d82354ed4ba132ea2be1ce2be,
+    type: 2}
+  m_PrefabInternal: {fileID: 178105398}
+  m_GameObject: {fileID: 1078114980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9472b484507c2be439635fa8731d9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fb37c29da2dc6f84ba98e4a55630859c, type: 2}
+  - {fileID: 2100000, guid: 0bacfb6b241270a4fa8a6e87c7569a94, type: 2}
+  - {fileID: 2100000, guid: 17901538cd719fe43a9abd1eb3fa6781, type: 2}
+  - {fileID: 2100000, guid: 028e5d354f0aeba4bbce16f613f8f520, type: 2}
+  - {fileID: 2100000, guid: a6c25495dc624c649ac6676ea3cd78ad, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
 --- !u!1 &1122576752
 GameObject:
   m_ObjectHideFlags: 0
@@ -1955,6 +2031,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
+      propertyPath: m_TagString
+      value: Grotto
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
   m_RootGameObject: {fileID: 839016937}
@@ -2058,9 +2138,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1245424651}
   - 65: {fileID: 1245424652}
+  - 114: {fileID: 1245424653}
   m_Layer: 0
   m_Name: grotto
-  m_TagString: Untagged
+  m_TagString: Grotto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2094,6 +2175,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 1}
   m_Center: {x: 0, y: 5, z: 5}
+--- !u!114 &1245424653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b5de6b0d82354ed4ba132ea2be1ce2be,
+    type: 2}
+  m_PrefabInternal: {fileID: 552053458}
+  m_GameObject: {fileID: 1245424650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9472b484507c2be439635fa8731d9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fb37c29da2dc6f84ba98e4a55630859c, type: 2}
+  - {fileID: 2100000, guid: 0bacfb6b241270a4fa8a6e87c7569a94, type: 2}
+  - {fileID: 2100000, guid: 17901538cd719fe43a9abd1eb3fa6781, type: 2}
+  - {fileID: 2100000, guid: 028e5d354f0aeba4bbce16f613f8f520, type: 2}
+  - {fileID: 2100000, guid: a6c25495dc624c649ac6676ea3cd78ad, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
 --- !u!1 &1408613721
 GameObject:
   m_ObjectHideFlags: 0
@@ -2103,9 +2203,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 1408613722}
   - 65: {fileID: 1408613723}
+  - 114: {fileID: 1408613724}
   m_Layer: 0
   m_Name: grotto
-  m_TagString: Untagged
+  m_TagString: Grotto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2139,6 +2240,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10, y: 10, z: 1}
   m_Center: {x: 0, y: 5, z: 5}
+--- !u!114 &1408613724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: b5de6b0d82354ed4ba132ea2be1ce2be,
+    type: 2}
+  m_PrefabInternal: {fileID: 658054655}
+  m_GameObject: {fileID: 1408613721}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9472b484507c2be439635fa8731d9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fb37c29da2dc6f84ba98e4a55630859c, type: 2}
+  - {fileID: 2100000, guid: 0bacfb6b241270a4fa8a6e87c7569a94, type: 2}
+  - {fileID: 2100000, guid: 17901538cd719fe43a9abd1eb3fa6781, type: 2}
+  - {fileID: 2100000, guid: 028e5d354f0aeba4bbce16f613f8f520, type: 2}
+  - {fileID: 2100000, guid: a6c25495dc624c649ac6676ea3cd78ad, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
 --- !u!1 &1412556125
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,7 +2401,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .198529422, g: .198529422, b: .198529422, a: .0196078438}
+  m_BackGroundColor: {r: .986207008, g: 1, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -2790,6 +2910,7 @@ GameObject:
   - 23: {fileID: 2015686925}
   - 114: {fileID: 2015686924}
   - 54: {fileID: 2015686928}
+  - 82: {fileID: 2015686929}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2883,3 +3004,61 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!82 &2015686929
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2015686922}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 478e2413c46b14f4bbb1f4def5284b09, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: .519999981
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2

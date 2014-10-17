@@ -2715,6 +2715,14 @@ Prefab:
       propertyPath: m_TagString
       value: Despawner
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: speedPowerUp
+      value: 
+      objectReference: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
+    - target: {fileID: 11400000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
+      propertyPath: crazyRotationPowerUp
+      value: 
+      objectReference: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b02674cc8ec3b7640b29008b63a10693, type: 2}
   m_RootGameObject: {fileID: 2015686922}
@@ -3324,7 +3332,8 @@ MonoBehaviour:
   TestEnemy: {fileID: 100000, guid: 97bc079da7b49cb449b68b55ba60cda0, type: 2}
   boidPickup: {fileID: 100000, guid: 370d3fb19b24bd84c8c95a1668fab370, type: 2}
   endScreen: {fileID: 1630428131}
-  powerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
+  speedPowerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
+  crazyRotationPowerUp: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
 --- !u!65 &1850694429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3371,7 +3380,8 @@ MonoBehaviour:
     movementSpeed: 25
     rotationSpeed: 50
   powerUps:
-    spawnChancePercent: 10
+    spawnSpeedChancePercent: 15
+    spawnCrazyRotationChancePercent: 10
     speedBuffModifier: 5
     experienceBonusModifier: 10
   scoring:

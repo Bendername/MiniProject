@@ -12,7 +12,8 @@ public class Despawner : MonoBehaviour {
 
 
     public GameObject endScreen;
-    public GameObject powerUp;
+    public GameObject speedPowerUp;
+    public GameObject crazyRotationPowerUp;
 	// Use this for initialization
 	void Start () {
 	
@@ -34,12 +35,19 @@ public class Despawner : MonoBehaviour {
                 other.transform.position += new Vector3(0, 0, 100);
                 endScreen.transform.position += new Vector3(0, 0, 20);
                 Debug.Log("New position: " + other.transform.position);
+                int speedPickupRng = Random.Range(0, 100);
+                int crazyRotationPickupRng = Random.Range(0, 100);
+                
                 Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
-                int rng = Random.Range(0, 100);
-                if (rng < GameMaster.GetPowerUpValues().spawnChancePercent)
+                if (speedPickupRng < GameMaster.GetPowerUpValues().spawnSpeedChancePercent)
                 {
-                    Instantiate(powerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
+                    Instantiate(speedPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
                 }
+                if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent) {
+                    Instantiate(crazyRotationPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
+                }
+
+                
 
                 Instantiate(boidPickup, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
             }

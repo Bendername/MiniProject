@@ -14,26 +14,47 @@ public class DrawingMech : MonoBehaviour {
     public int peakCount;
     public int height;
     public int width;
-    Mesh mesh;
+
+
+    List<GameObject> tunnel = new List<GameObject>();
+    GameObject gameObjectTunnel = new GameObject();
 
     List<int> indices = new List<int>();
 	// Use this for initialization
 	void Start () {
-        mesh = createSquareMesh(width, height);
-        mesh.RecalculateNormals();
+        for (int i = 0; i < 4; i++ )
+        {
+            GameObject wall = new GameObject();
+            wall.AddComponent<MeshFilter>();
+            wall.AddComponent<MeshRenderer>();
+            Mesh mesh;
+            mesh = createSquareMesh(width, height);
+            mesh.RecalculateNormals();
         mesh.uv = new Vector2[mesh.vertexCount];        
         Vector3 normal = Vector3.Cross(mesh.vertices[0]- mesh.vertices[1] , mesh.vertices[0] -mesh.vertices[width + 1] );
         mesh.vertices =VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
-        mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, spikeTop, spikeIntensity, height, width, peakCount);
+            float random = Random.Range(3f, 10f);
+        mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random-Random.Range(1,random-1), height, width, Random.Range(0, 2));
          mesh.RecalculateNormals();
+         wall.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+         wall.GetComponent<MeshFilter>().mesh = mesh;
+        wall.transform.Rotate(new Vector3(90*i, 0, 0));
+        wall.AddComponent<MeshCollider>();
+        tunnel.Add(wall);
+        wall.transform.parent = transform;
+        }
 
-        GetComponent<MeshFilter>().mesh = mesh;
-        
+
+        tunnel[3].transform.position = tunnel[0].transform.position + new Vector3(0, 14f, 1);
+        tunnel[2].transform.position = tunnel[0].transform.position + new Vector3(0, 15.868f, -12.585f);
+        tunnel[1].transform.position = tunnel[0].transform.position + new Vector3(0, 3.5628f, -14.175f);
+        transform.Rotate(new Vector3(0, -90, 0));
     }
 
 	// Update is called once per frame
 	void Update () {
 	}
+
 
     List<Vector3> CreateVertices(int length, int height)
     {

@@ -35,6 +35,7 @@ public class UIScoring : MonoBehaviour {
         boidsText.text = PlayerControl.DroneCount().ToString();
         scoreText.text = score.ToString("0");
         comboText.text = "x" + comboMultiplier.ToString("0.0");
+
 	}
 
     public static void EndCombo()

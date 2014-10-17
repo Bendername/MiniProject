@@ -7,6 +7,8 @@ public class PlayerControl : MonoBehaviour {
     private float movementSpeed;
     private float moveSpeedBonus = 0f;
     private float aliveTime = 0f;
+    private bool rotationIdle = true;
+    private float crazyRotationSpeed = 10f;
     SwarmBehaviour swarm;
     AudioSource bgMusic;
 
@@ -33,7 +35,17 @@ public class PlayerControl : MonoBehaviour {
         rigidbody.velocity = transform.forward * (movementSpeed + moveSpeedBonus);
         //transform.position += transform.forward * Time.deltaTime * (movementSpeed + moveSpeedBonus);
         aliveTime += Time.deltaTime;
+        if(rotationIdle)
+            transform.Rotate(new Vector3(0, 0, Time.smoothDeltaTime * crazyRotationSpeed));
 	}
+
+    public static void FlipRotation()
+    {
+        float newSpeed = (Random.Range(0, 10) > 7) ? Random.Range(-250f, 250f) : Random.Range(-50f, 50f);
+        
+        Debug.Log(newSpeed);
+        staticRef.crazyRotationSpeed = newSpeed;
+    }
 
     public static void AddMoveSpeedBonus(float bonus)
     {
@@ -59,8 +71,9 @@ public class PlayerControl : MonoBehaviour {
     {
         return staticRef.swarm.drones.Count;
     }
-    public static float GetAliveTime()
+    public static float GetDistance()
     {
-        return staticRef.aliveTime;
+        //Player is not actually at 0 at the beginning, so don't count before he's past it.
+        return (staticRef.transform.position.z > 0) ? staticRef.transform.position.z : 0 ;
     }
 }

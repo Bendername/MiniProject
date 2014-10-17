@@ -269,9 +269,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topHeight: 2
   peakIntensity: .5
-  peakFrequency: 5
-  spikeTop: 10
-  spikeIntensity: 1
+  peakFrequency: 1
+  spikeTop: 4
+  spikeIntensity: 3
   peakCount: 1
-  height: 30
-  width: 30
+  height: 15
+  width: 20

@@ -9,6 +9,7 @@ public class UIScoring : MonoBehaviour {
     public Text scoreText;
     public Text boidsText;
     public Text comboText;
+    public Text speedText;
 
     GameMaster.Scoring scoreValues;
 
@@ -33,8 +34,9 @@ public class UIScoring : MonoBehaviour {
 	void Update () {
         score += scoreValues.scoreToTime * Time.deltaTime * speedMultiplier * comboMultiplier;
         boidsText.text = PlayerControl.DroneCount().ToString();
-        scoreText.text = score.ToString("0");
+        scoreText.text = score.ToString("0.000");
         comboText.text = "x" + comboMultiplier.ToString("0.0");
+        speedText.text = "x" + speedMultiplier.ToString("0.0");
 
 	}
 

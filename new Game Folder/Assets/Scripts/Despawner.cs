@@ -10,6 +10,8 @@ public class Despawner : MonoBehaviour {
     [SerializeField]
     GameObject boidPickup;
 
+
+    public GameObject endScreen;
     public GameObject powerUp;
 	// Use this for initialization
 	void Start () {
@@ -30,6 +32,7 @@ public class Despawner : MonoBehaviour {
             {
                 Debug.Log("Grotto hit! Current position: " + other.transform.position);
                 other.transform.position += new Vector3(0, 0, 100);
+                endScreen.transform.position += new Vector3(0, 0, 20);
                 Debug.Log("New position: " + other.transform.position);
                 Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
                 int rng = Random.Range(0, 100);

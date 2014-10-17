@@ -9,7 +9,6 @@ public class boidPickup : PickupBase {
 
         GameObject[] g = GameObject.FindGameObjectsWithTag("Grotto");
 
-
         foreach (GameObject ga in g)
         {
             ga.GetComponent<CrazyTown>().ChangeMaterial();

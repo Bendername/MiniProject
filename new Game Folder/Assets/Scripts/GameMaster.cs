@@ -5,6 +5,7 @@ public class GameMaster : MonoBehaviour {
 
     public Player player;
     public PowerUps powerUps;
+    public Scoring scoring;
     static GameMaster gameMasterRef;
 
     public void Awake(){
@@ -26,6 +27,13 @@ public class GameMaster : MonoBehaviour {
         public float experienceBonusModifier    = 10;
     }
 
+    [System.Serializable]
+    public class Scoring
+    {
+        public int scoreToTime = 2;
+        public int scorePerBoid = 5;
+    }
+
     public static PowerUps GetPowerUpValues()
     {
         return gameMasterRef.powerUps;
@@ -35,6 +43,13 @@ public class GameMaster : MonoBehaviour {
     {
         return gameMasterRef.player;
     }
+
+    public static Scoring GetScoringValues()
+    {
+        return gameMasterRef.scoring;
+    }
+
+
 
 
 }

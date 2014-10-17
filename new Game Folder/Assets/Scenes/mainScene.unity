@@ -2593,7 +2593,6 @@ GameObject:
   - 4: {fileID: 1850694426}
   - 65: {fileID: 1850694429}
   - 114: {fileID: 1850694428}
-  - 54: {fileID: 1850694427}
   m_Layer: 0
   m_Name: Despawner
   m_TagString: Untagged
@@ -2608,27 +2607,11 @@ Transform:
   m_PrefabInternal: {fileID: 748148277}
   m_GameObject: {fileID: 1850694425}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.50390005, y: -1.16720009, z: -8.71779919}
-  m_LocalScale: {x: 15, y: 15, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -8.71779919}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 2015686923}
   m_RootOrder: 1
---- !u!54 &1850694427
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 5400000, guid: b02674cc8ec3b7640b29008b63a10693,
-    type: 2}
-  m_PrefabInternal: {fileID: 748148277}
-  m_GameObject: {fileID: 1850694425}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: .0500000007
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &1850694428
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,6 +47,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400004}
   - 65: {fileID: 6500000}
+  - 114: {fileID: 11400000}
   m_Layer: 0
   m_Name: grotto
   m_TagString: Untagged
@@ -384,6 +385,24 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9472b484507c2be439635fa8731d9bc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  materials:
+  - {fileID: 2100000, guid: fb37c29da2dc6f84ba98e4a55630859c, type: 2}
+  - {fileID: 2100000, guid: 0bacfb6b241270a4fa8a6e87c7569a94, type: 2}
+  - {fileID: 2100000, guid: 17901538cd719fe43a9abd1eb3fa6781, type: 2}
+  - {fileID: 2100000, guid: 028e5d354f0aeba4bbce16f613f8f520, type: 2}
+  - {fileID: 2100000, guid: a6c25495dc624c649ac6676ea3cd78ad, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

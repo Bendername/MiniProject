@@ -10,6 +10,8 @@ public class GameMaster : MonoBehaviour {
 
     public void Awake(){
         gameMasterRef = this;
+
+        Screen.showCursor = false;
     }
 
     [System.Serializable]
@@ -22,9 +24,10 @@ public class GameMaster : MonoBehaviour {
     [System.Serializable]
     public class PowerUps
     {
-        public int spawnChancePercent            = 10;
-        public float speedBuffModifier          = 5;
-        public float experienceBonusModifier    = 10;
+        public int spawnSpeedChancePercent          = 15;
+        public int spawnCrazyRotationChancePercent  = 10;
+        public float speedBuffModifier              = 5;
+        public float experienceBonusModifier        = 10;
     }
 
     [System.Serializable]

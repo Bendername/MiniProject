@@ -16,6 +16,6 @@ public class UIScoring : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         boids.text = PlayerControl.DroneCount().ToString();
-        score.text = ((PlayerControl.GetAliveTime() * GameMaster.GetScoringValues().scoreToTime) + (PlayerControl.DroneCount() * GameMaster.GetScoringValues().scorePerBoid)).ToString();
+        score.text = ((PlayerControl.GetDistance() * GameMaster.GetScoringValues().scoreToTime) + (PlayerControl.DroneCount() * GameMaster.GetScoringValues().scorePerBoid)).ToString();
 	}
 }

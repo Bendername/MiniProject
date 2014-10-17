@@ -4,7 +4,10 @@ using System.Collections;
 [RequireComponent(typeof(Collider))]
 public class PickupBase : MonoBehaviour
 {
+    [SerializeField]
+    GameObject pickupSound;
 
+    bool playSound = true;
     bool rotateIdle = true;
     float rotateIdleSpeed = 50f;
 
@@ -24,6 +27,10 @@ public class PickupBase : MonoBehaviour
     {
         if (other.GetComponent<PlayerControl>()) //evaluates to true if it collides with something with player controls
         {
+            //if instructed to play sound, and there exists a sound, play it
+            if (playSound && pickupSound)
+                Instantiate(pickupSound);
+
             OnPickedUp();
             Destroy(gameObject);
         }

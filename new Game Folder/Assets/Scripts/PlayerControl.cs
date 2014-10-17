@@ -7,6 +7,7 @@ public class PlayerControl : MonoBehaviour {
     private float movementSpeed;
     private float moveSpeedBonus = 0f;
     SwarmBehaviour swarm;
+    AudioSource bgMusic;
 
     
     void Awake()
@@ -20,6 +21,7 @@ public class PlayerControl : MonoBehaviour {
         rotationSpeed = GameMaster.GetPlayerValues().rotationSpeed;
         movementSpeed = GameMaster.GetPlayerValues().movementSpeed;
         swarm = GetComponentInChildren<SwarmBehaviour>();
+        bgMusic = GetComponentInChildren<AudioSource>();
         
 	}
 	
@@ -44,5 +46,10 @@ public class PlayerControl : MonoBehaviour {
     public static void RemoveDrone()
     {
         staticRef.swarm.RemoveDrone();
+    }
+
+    public static AudioSource GetBgMusic()
+    {
+        return staticRef.bgMusic;
     }
 }

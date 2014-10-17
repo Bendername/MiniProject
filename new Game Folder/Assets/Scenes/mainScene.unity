@@ -1335,6 +1335,50 @@ MeshFilter:
   m_PrefabInternal: {fileID: 1143279884}
   m_GameObject: {fileID: 958544189}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1060368731
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: .564931035
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.16178513
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -1.69037938
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+  m_RootGameObject: {fileID: 1963854455}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1078114980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2009,8 +2053,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   groundPrefab: {fileID: 100004, guid: b5de6b0d82354ed4ba132ea2be1ce2be, type: 2}
-  spawnchance: 100
   TestEnemy: {fileID: 100000, guid: 97bc079da7b49cb449b68b55ba60cda0, type: 2}
+  boidPickup: {fileID: 0}
   powerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
 --- !u!65 &1850694429
 BoxCollider:
@@ -2025,6 +2069,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1963854455
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+  m_PrefabInternal: {fileID: 1060368731}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1963854457}
+  - 114: {fileID: 1963854456}
+  m_Layer: 0
+  m_Name: GameMaster_V2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1963854456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1060368731}
+  m_GameObject: {fileID: 1963854455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8cacef9ffb961247b58bfcface65d50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player:
+    movementSpeed: 10
+    rotationSpeed: 50
+  powerUps:
+    spawnChancePercent: 10
+    speedBuffModifier: 5
+    experienceBonusModifier: 10
+--- !u!4 &1963854457
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+  m_PrefabInternal: {fileID: 1060368731}
+  m_GameObject: {fileID: 1963854455}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: .564931035, y: 2.16178513, z: -1.69037938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
 --- !u!1 &1979348096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2131,7 +2222,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dfcac95ea72dd94b82ca1c1ea73a277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 10
 --- !u!23 &2015686925
 Renderer:
   m_ObjectHideFlags: 0

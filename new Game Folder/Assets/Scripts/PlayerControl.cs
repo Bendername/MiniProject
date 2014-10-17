@@ -2,17 +2,17 @@
 using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
-
     static PlayerControl staticRef;
-    
-    private float rotationSpeed = 50f;
-    public float movementSpeed = 5f;
+    private float rotationSpeed;
+    private float movementSpeed;
     private float moveSpeedBonus = 0f;
     SwarmBehaviour swarm;
 
     
     void Awake()
     {
+        rotationSpeed = GameMaster.GetPlayerValues().rotationSpeed;
+        movementSpeed = GameMaster.GetPlayerValues().movementSpeed;
         staticRef = this;
     }
 

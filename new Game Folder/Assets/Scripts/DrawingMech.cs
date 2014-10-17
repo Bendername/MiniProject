@@ -9,6 +9,9 @@ public class DrawingMech : MonoBehaviour {
     public float topHeight = 1;
     public float peakIntensity = 0.1f;
     public float peakFrequency = 5;
+    public float spikeTop = 1;
+    public float spikeIntensity = 1;
+    public int peakCount;
     public int height;
     public int width;
     Mesh mesh;
@@ -18,9 +21,10 @@ public class DrawingMech : MonoBehaviour {
 	void Start () {
         mesh = createSquareMesh(width, height);
         mesh.RecalculateNormals();
-        mesh.uv = new Vector2[mesh.vertexCount];
+        mesh.uv = new Vector2[mesh.vertexCount];        
         Vector3 normal = Vector3.Cross(mesh.vertices[0]- mesh.vertices[1] , mesh.vertices[0] -mesh.vertices[width + 1] );
-         mesh.vertices =VertexTranformer.test(mesh.vertices, topHeight, peakIntensity, peakFrequency, normal);
+        mesh.vertices =VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
+        mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, spikeTop, spikeIntensity, height, width, peakCount);
          mesh.RecalculateNormals();
 
         GetComponent<MeshFilter>().mesh = mesh;

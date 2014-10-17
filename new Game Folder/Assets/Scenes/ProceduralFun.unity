@@ -216,7 +216,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 20abb2f8c9c727f448748fc67b68672d, type: 2}
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -267,8 +267,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6054770b0f8a946a923d85960a4559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topHeight: 3
-  peakIntensity: .949999988
+  topHeight: 2
+  peakIntensity: .5
   peakFrequency: 5
-  height: 100
-  width: 100
+  spikeTop: 10
+  spikeIntensity: 1
+  peakCount: 1
+  height: 30
+  width: 30

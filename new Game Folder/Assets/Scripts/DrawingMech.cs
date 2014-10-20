@@ -39,7 +39,9 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-            mesh.uv = new Vector2[] { new Vector2(0, 0), new Vector2(0, width), new Vector2(height, 0), new Vector2(height, width) };
+
+
+            mesh.uv = CreateUVs().ToArray();
             normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
         //    startVertices.Add(placeHolder);
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
@@ -66,7 +68,22 @@ public class DrawingMech : MonoBehaviour {
 
 	}
 
-    
+
+    List<Vector2> CreateUVs()
+    {
+        List<Vector2> UVs = new List<Vector2>();
+
+        for (int y = 0; y <= height; y++)
+        {
+            for (int x = 0; x <= width; x++)
+            {
+                UVs.Add(new Vector2(x, y));
+            }
+        }
+
+        return UVs;
+ 
+    }
 
     public IEnumerator RecalculateVertices()
     {
@@ -75,7 +92,7 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-            mesh.uv = new Vector2[] { new Vector2(0, 0), new Vector2(0, width), new Vector2(height, 0), new Vector2(height, width) };
+            mesh.uv = CreateUVs().ToArray();
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);

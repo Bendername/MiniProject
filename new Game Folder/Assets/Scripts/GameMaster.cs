@@ -3,10 +3,12 @@ using System.Collections;
 
 public class GameMaster : MonoBehaviour {
 
+
     public Player player;
     public PowerUps powerUps;
     public Scoring scoring;
     static GameMaster gameMasterRef;
+	public static GameObject playerObject;
 
     public void Awake(){
         gameMasterRef = this;

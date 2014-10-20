@@ -25,7 +25,7 @@ public class PlayerControl : MonoBehaviour {
         movementSpeed = GameMaster.GetPlayerValues().movementSpeed;
         swarm = GetComponentInChildren<SwarmBehaviour>();
         bgMusic = GetComponentInChildren<AudioSource>();
-        
+		GameMaster.playerObject = gameObject;
 	}
 	
 	// Update is called once per frame

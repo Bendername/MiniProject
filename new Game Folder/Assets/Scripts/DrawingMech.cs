@@ -66,17 +66,19 @@ public class DrawingMech : MonoBehaviour {
 
 	}
 
-    public void RecalculateVertices()
+    public IEnumerator RecalculateVertices()
     {
         for (int i = 0; i < 4; i++)
         {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
+            yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);
-
-mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 2));
+            yield return null;
+            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 2));
+            yield return null;
             mesh.RecalculateNormals();
             tunnel[i].GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
             tunnel[i].GetComponent<MeshFilter>().mesh = mesh;

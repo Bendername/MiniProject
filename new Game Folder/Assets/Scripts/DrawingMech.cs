@@ -16,12 +16,16 @@ public class DrawingMech : MonoBehaviour {
     public int width;
 
 
+    List<Vector3[]> startVertices = new List<Vector3[]>();
+
     List<GameObject> tunnel = new List<GameObject>();
+    Vector3 normal;
 
     List<int> indices = new List<int>();
 	// Use this for initialization
-	void Start () {
-        for (int i = 0; i < 4; i++ )
+    void Start()
+    {
+        for (int i = 0; i < 4; i++)
         {
             GameObject wall = new GameObject();
             if (i == 0)
@@ -29,36 +33,57 @@ public class DrawingMech : MonoBehaviour {
                 wall.name = "baseWall";
             }
             else { wall.name = "offWall"; }
+
             wall.AddComponent<MeshFilter>();
             wall.AddComponent<MeshRenderer>();
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-        mesh.uv = new Vector2[mesh.vertexCount];        
-        Vector3 normal = Vector3.Cross(mesh.vertices[0]- mesh.vertices[1] , mesh.vertices[0] -mesh.vertices[width + 1] );
-        mesh.vertices =VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
+            mesh.uv = new Vector2[mesh.vertexCount];
+            normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
+        //    startVertices.Add(placeHolder);
+            mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);
-        mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random-Random.Range(1,random-1), height, width, Random.Range(0, 2));
-         mesh.RecalculateNormals();
-         wall.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
-         wall.GetComponent<MeshFilter>().mesh = mesh;
-        wall.transform.Rotate(new Vector3(90*i, 0, 0));
-        wall.AddComponent<MeshCollider>();
-        tunnel.Add(wall);
-        wall.transform.parent = transform;
+
+            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 2));
+            mesh.RecalculateNormals();
+            wall.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+            wall.GetComponent<MeshFilter>().mesh = mesh;
+            wall.transform.Rotate(new Vector3(90 * i, 0, 0));
+            wall.AddComponent<MeshCollider>();
+            tunnel.Add(wall);
+            wall.transform.parent = transform;
         }
-
-
-        tunnel[3].transform.position = tunnel[0].transform.position + new Vector3(0, 14f, 1);
-        tunnel[2].transform.position = tunnel[0].transform.position + new Vector3(0, 15.868f, -12.585f);
-        tunnel[1].transform.position = tunnel[0].transform.position + new Vector3(0, 3.5628f, -14.175f);
+        tunnel[3].transform.position = tunnel[0].transform.position + new Vector3(0, 18.3f, 1.75f);
+        tunnel[2].transform.position = tunnel[0].transform.position + new Vector3(0, 20f, -16.585f);
+        tunnel[1].transform.position = tunnel[0].transform.position + new Vector3(0, 1.5f, -18.5f);
         transform.Rotate(new Vector3(0, -90, 0));
+
     }
 
 	// Update is called once per frame
 	void Update () {
+
 	}
 
+    public void RecalculateVertices()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            Mesh mesh;
+            mesh = createSquareMesh(width, height);
+            mesh.RecalculateNormals();
+            mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
+            float random = Random.Range(3f, 10f);
+
+mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 2));
+            mesh.RecalculateNormals();
+            tunnel[i].GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+            tunnel[i].GetComponent<MeshFilter>().mesh = mesh;
+            Destroy(tunnel[i].GetComponent<MeshCollider>());
+            tunnel[i].AddComponent<MeshCollider>();
+        }
+    }
 
     List<Vector3> CreateVertices(int length, int height)
     {
@@ -106,8 +131,6 @@ public class DrawingMech : MonoBehaviour {
         mesh.vertices = vertexCollection.ToArray();
         mesh.triangles = indicesCollection.ToArray();
 
-        //vertices.Clear();
-       // indices.Clear();
         return mesh;
     }
 }

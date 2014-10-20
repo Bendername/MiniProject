@@ -40,7 +40,6 @@ public static class VertexTranformer{
     public static Vector3[] CreateSpike(Vector3[] vertices, float topHeight, float peakIntensity, int height, int width, int numberOfPeaks)
     {
         int rangeFromCenter = (int)(topHeight / peakIntensity);
-        Debug.Log(rangeFromCenter);
 
         for (int i = 0; i < numberOfPeaks; i++)
         {

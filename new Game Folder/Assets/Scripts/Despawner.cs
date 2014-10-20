@@ -36,7 +36,6 @@ public class Despawner : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
         if (other.gameObject.tag != "Drone")
         {
 
@@ -47,16 +46,16 @@ public class Despawner : MonoBehaviour {
                 //endScreen.transform.position += new Vector3(0, 0, 20);
                 int speedPickupRng = Random.Range(0, 100);
                 int crazyRotationPickupRng = Random.Range(0, 100);
+                int thwompRng = Random.Range(0, 100);
                 other.transform.position += new Vector3(0, 0, 78);
 
                 Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 if (speedPickupRng < GameMaster.GetPowerUpValues().spawnSpeedChancePercent)
-                {
                     Instantiate(speedPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
-                }
-                if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent) {
+                if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent) 
                     Instantiate(crazyRotationPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
-                }
+                if(thwompRng < GameMaster.EnemyValues().thwompChance)
+                    Instantiate(thwomp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
 
                 
                 Vector2 boidPos = pSpawner.GetNextBoidPosition();

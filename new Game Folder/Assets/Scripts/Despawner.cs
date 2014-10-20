@@ -65,7 +65,7 @@ public class Despawner : MonoBehaviour {
             else if (other.name == "offWall")
             {
                 other.transform.position += new Vector3(0, 0, 180);
-                endScreen.transform.position += new Vector3(0, 0, 20);
+                
             }
         }
         else

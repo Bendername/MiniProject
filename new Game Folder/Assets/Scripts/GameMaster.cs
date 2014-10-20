@@ -7,6 +7,7 @@ public class GameMaster : MonoBehaviour {
     public Player player;
     public PowerUps powerUps;
     public Scoring scoring;
+    public Enemies enemies;
     static GameMaster gameMasterRef;
 	public static GameObject playerObject;
 
@@ -39,6 +40,16 @@ public class GameMaster : MonoBehaviour {
         public float scorePerBoid = 5;
         public float BoidComboMultiplier = 0.1f;
         public float SpeedMultiplier = 0.1f;
+    }
+
+    [System.Serializable]
+    public class Enemies
+    {
+        public float thwompChance = 10f;
+    }
+
+    public static Enemies EnemyValues(){
+        return gameMasterRef.enemies;
     }
 
     public static PowerUps GetPowerUpValues()

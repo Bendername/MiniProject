@@ -18,7 +18,7 @@ public class Despawner : MonoBehaviour {
 
     void Awake()
     {
-        pSpawner = new PickupSpawner(new Vector2(8f, 8f), new Vector2(-4, 1));
+        pSpawner = new PickupSpawner(new Vector2(-5, 2), new Vector2(9, 17));
     }
 
 	// Use this for initialization

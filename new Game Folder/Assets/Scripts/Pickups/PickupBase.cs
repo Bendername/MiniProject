@@ -37,7 +37,7 @@ public class PickupBase : MonoBehaviour
 
 		if (fadeOut) {
 			Color clr = mat.color;
-			clr.a = Vector3.Distance(GameMaster.playerObject.transform.position,transform.position) / FadeSpeed;
+			clr.a = Vector3.Distance(GameMaster.playerObject.transform.position,transform.position) / FadeSpeed + 0.5f;
 			mat.color = clr;
 		}
 

@@ -30,15 +30,25 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        Transform t = transform;
         Vector3 rotation = new Vector3(-Input.GetAxis("Mouse Y"), Input.GetAxis("Mouse X"), 0) * rotationSpeed * Time.deltaTime;
-        transform.Rotate(rotation);
+        t.Rotate(rotation);
         rigidbody.velocity = transform.forward * (movementSpeed + moveSpeedBonus);
         //transform.position += transform.forward * Time.deltaTime * (movementSpeed + moveSpeedBonus);
         aliveTime += Time.deltaTime;
-        /*
-        if(rotationIdle)
-            transform.Rotate(new Vector3(0, 0, Time.smoothDeltaTime * crazyRotationSpeed));
-         * */
+
+        if (t.position.x < 0)
+            if (t.rotation.z > 0 && t.rotation.z < 0.09f)
+                t.Rotate(new Vector3(0, 0, Time.smoothDeltaTime * crazyRotationSpeed));
+            else if (t.rotation.z > 0.09f && t.rotation.z < 0.15f)
+                t.Rotate(new Vector3(0, 0, -(Time.smoothDeltaTime * crazyRotationSpeed))); 
+        else if(t.position.x > 0)
+            if (t.rotation.z < 0 && t.rotation.z > 0.09f)
+                t.Rotate(new Vector3(0, 0, -(Time.smoothDeltaTime * crazyRotationSpeed)));
+            else if (t.rotation.z < 0.09f && t.rotation.z > 0.15f)
+                t.Rotate(new Vector3(0, 0, Time.smoothDeltaTime * crazyRotationSpeed)); 
+
+        Debug.Log(t.rotation.z);
 	}
 
     public static void FlipRotation()

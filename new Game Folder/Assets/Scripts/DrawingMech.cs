@@ -73,6 +73,7 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
+            mesh.uv = new Vector2[mesh.vertexCount];
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);
@@ -86,6 +87,8 @@ public class DrawingMech : MonoBehaviour {
             tunnel[i].AddComponent<MeshCollider>();
         }
     }
+
+
 
     List<Vector3> CreateVertices(int length, int height)
     {

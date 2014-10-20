@@ -35,8 +35,10 @@ public class PlayerControl : MonoBehaviour {
         rigidbody.velocity = transform.forward * (movementSpeed + moveSpeedBonus);
         //transform.position += transform.forward * Time.deltaTime * (movementSpeed + moveSpeedBonus);
         aliveTime += Time.deltaTime;
+        /*
         if(rotationIdle)
             transform.Rotate(new Vector3(0, 0, Time.smoothDeltaTime * crazyRotationSpeed));
+         * */
 	}
 
     public static void FlipRotation()

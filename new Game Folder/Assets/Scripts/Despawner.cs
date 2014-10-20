@@ -36,7 +36,7 @@ public class Despawner : MonoBehaviour {
         if (other.gameObject.tag != "Drone")
         {
 
-            if (other.name == "wall")
+            if (other.name == "baseWall")
             {
                 Debug.Log("Grotto hit! Current position: " + other.transform.position);
                 other.transform.position += new Vector3(0, 0, 78);
@@ -59,6 +59,11 @@ public class Despawner : MonoBehaviour {
                 Vector2 boidPos = pSpawner.GetNextBoidPosition();
 
                 Instantiate(boidPickup, new Vector3(boidPos.x, boidPos.y, other.gameObject.transform.position.z + 100), new Quaternion());
+            }
+            else if (other.name == "offWall")
+            {
+                other.transform.position += new Vector3(0, 0, 78);
+                endScreen.transform.position += new Vector3(0, 0, 20);
             }
         }
         else

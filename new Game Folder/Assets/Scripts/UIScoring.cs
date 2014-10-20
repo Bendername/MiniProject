@@ -16,7 +16,7 @@ public class UIScoring : MonoBehaviour {
     float score = 0;
 
     float comboMultiplier = 1f;
-    float speedMultiplier = 1f;
+    float speedMultiplier;
 
     void Awake()
     {
@@ -25,6 +25,7 @@ public class UIScoring : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        speedMultiplier = GameMaster.GetPlayerValues().movementSpeedMultiplier;
         scoreText.text = "0";
         boidsText.text = "0";
         scoreValues = GameMaster.GetScoringValues();
@@ -53,6 +54,6 @@ public class UIScoring : MonoBehaviour {
 
     public static void IncreaseSpeedMultiplier()
     {
-        staticRef.speedMultiplier += GameMaster.GetScoringValues().SpeedMultiplier;
+        GameMaster.GetPlayerValues().movementSpeedMultiplier += GameMaster.GetScoringValues().SpeedMultiplier;
     }
 }

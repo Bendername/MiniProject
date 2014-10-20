@@ -39,8 +39,7 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-            Vector2[] uvs = new Vector2[] {new Vector2(0,0), new Vector2(0,width), new Vector2(height, 0), new Vector2(height, width)  };
-            mesh.uv = uvs;
+            mesh.uv = new Vector2[] { new Vector2(0, 0), new Vector2(0, width), new Vector2(height, 0), new Vector2(height, width) };
             normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
         //    startVertices.Add(placeHolder);
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
@@ -76,7 +75,7 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-            mesh.uv = new Vector2[mesh.vertexCount];
+            mesh.uv = new Vector2[] { new Vector2(0, 0), new Vector2(0, width), new Vector2(height, 0), new Vector2(height, width) };
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);
@@ -142,12 +141,19 @@ public class DrawingMech : MonoBehaviour {
         return mesh;
     }
 
-    Mesh addFunnel(Vector3[] vertices, int[] triangles, int height)
+    Mesh addFunnel(Vector3[] vertices, int[] triangles, int height, int width)
     {
         Mesh mesh = new Mesh();
+        int verticesLength = vertices.Length;
         for (int i = 0; i < height; i++)
         {
-          //  vertices[vertices.Length + i] = 
+            vertices[vertices.Length + i] = new Vector3(-1, height, -3);
+        }
+        for (int i = 0; i < vertices.Length - verticesLength;  i++)
+        {//This doesn't work
+            triangles[triangles.Length] = i;
+            triangles[triangles.Length + 1] = i * width;
+            triangles[triangles.Length + 2] = i + verticesLength;
         }
 
             return mesh;

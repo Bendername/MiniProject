@@ -15,7 +15,7 @@ RenderSettings:
   m_Fog: 1
   m_FogColor: {r: 0, g: .0147058964, b: .0134888561, a: 1}
   m_FogMode: 3
-  m_FogDensity: .0500000007
+  m_FogDensity: .0149999997
   m_LinearFogStart: 7.11000013
   m_LinearFogEnd: 303.869995
   m_AmbientLight: {r: .200000003, g: .200000003, b: .200000003, a: 1}
@@ -578,6 +578,14 @@ Prefab:
       propertyPath: thwomp
       value: 
       objectReference: {fileID: 100000, guid: 9d214e21b3a16f14a9fd883966001bca, type: 2}
+    - target: {fileID: 10800000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
+      propertyPath: m_Intensity
+      value: 1.86000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 10800000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
+      propertyPath: m_Range
+      value: 30
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
   m_RootGameObject: {fileID: 2105409298}
@@ -3557,8 +3565,8 @@ Light:
   serializedVersion: 3
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 1.86000001
+  m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:

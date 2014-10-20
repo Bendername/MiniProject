@@ -7,20 +7,40 @@ public class PickupBase : MonoBehaviour
     [SerializeField]
     GameObject pickupSound;
 
+	[SerializeField]
+	float FadeSpeed;
+
+	bool fadeOut = true;
     bool playSound = true;
     bool rotateIdle = true;
     float rotateIdleSpeed = 50f;
+
+	Material mat;
 
     void Awake()
     {
         collider.isTrigger = true;
     }
 
+	void Start()
+	{
+		mat = renderer.material;
+	}
+
+
     // Update is called once per frame
     void Update()
     {
         if (rotateIdle)
             transform.Rotate(new Vector3(0, Time.smoothDeltaTime * rotateIdleSpeed, 0));
+
+
+		if (fadeOut) {
+			Color clr = mat.color;
+			clr.a = Vector3.Distance(GameMaster.playerObject.transform.position,transform.position) / FadeSpeed + 0.5f;
+			mat.color = clr;
+		}
+
     }
 
     void OnTriggerEnter(Collider other)

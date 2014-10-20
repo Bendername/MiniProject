@@ -29,7 +29,7 @@ public class Despawner : MonoBehaviour {
 	void Update () {
 		Vector3 myPos = transform.position;
 		Vector3 playerPos = GameMaster.playerObject.transform.position;
-		myPos.z = playerPos.z - 100;
+		myPos.z = playerPos.z - 30;
 		transform.position = myPos;
 	}
 

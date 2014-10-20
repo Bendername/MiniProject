@@ -38,21 +38,20 @@ public class Despawner : MonoBehaviour {
 
             if (other.name == "baseWall")
             {
-                Debug.Log("Grotto hit! Current position: " + other.transform.position);
-                other.transform.position += new Vector3(0, 0, 78);
-                endScreen.transform.position += new Vector3(0, 0, 20);
-                Debug.Log("New position: " + other.transform.position);
+                other.GetComponentInParent<DrawingMech>().RecalculateVertices();
+                other.transform.position += new Vector3(0, 0, 180);
+                //endScreen.transform.position += new Vector3(0, 0, 20);
                 int speedPickupRng = Random.Range(0, 100);
                 int crazyRotationPickupRng = Random.Range(0, 100);
 
 
-                Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
+                Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 if (speedPickupRng < GameMaster.GetPowerUpValues().spawnSpeedChancePercent)
                 {
-                    Instantiate(speedPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
+                    Instantiate(speedPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 }
                 if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent) {
-                    Instantiate(crazyRotationPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 100), new Quaternion());
+                    Instantiate(crazyRotationPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 }
 
                 

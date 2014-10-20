@@ -20,7 +20,6 @@ public class SpawnWall : MonoBehaviour {
             wallList.Add(tunnel);
 
         }
-        Debug.Log(wallList.Count);
 
 	}
 

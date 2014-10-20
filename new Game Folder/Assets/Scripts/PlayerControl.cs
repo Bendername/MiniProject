@@ -48,7 +48,6 @@ public class PlayerControl : MonoBehaviour {
             else if (t.rotation.z < 0.09f && t.rotation.z > 0.15f)
                 t.Rotate(new Vector3(0, 0, Time.smoothDeltaTime * crazyRotationSpeed)); 
 */
-        Debug.Log(t.rotation.z);
 	}
 
     public static void FlipRotation()

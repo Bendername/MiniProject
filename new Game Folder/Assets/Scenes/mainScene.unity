@@ -548,7 +548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 11400004, guid: fbd523e524c415948baa68fe98c94800, type: 2}
       propertyPath: endScreen
@@ -570,6 +570,14 @@ Prefab:
       propertyPath: m_BackGroundColor.a
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100010, guid: fbd523e524c415948baa68fe98c94800, type: 2}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: fbd523e524c415948baa68fe98c94800, type: 2}
+      propertyPath: thwomp
+      value: 
+      objectReference: {fileID: 100000, guid: 9d214e21b3a16f14a9fd883966001bca, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
   m_RootGameObject: {fileID: 2105409298}
@@ -1379,7 +1387,7 @@ GameObject:
   - 82: {fileID: 824082985}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2863,6 +2871,7 @@ MonoBehaviour:
   endScreen: {fileID: 0}
   speedPowerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
   crazyRotationPowerUp: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
+  thwomp: {fileID: 100000, guid: 9d214e21b3a16f14a9fd883966001bca, type: 2}
 --- !u!65 &1559874375
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3681,6 +3690,8 @@ MonoBehaviour:
     scorePerBoid: 5
     BoidComboMultiplier: .100000001
     SpeedMultiplier: .100000001
+  enemies:
+    thwompChance: 10
 --- !u!4 &1963854457
 Transform:
   m_ObjectHideFlags: 0

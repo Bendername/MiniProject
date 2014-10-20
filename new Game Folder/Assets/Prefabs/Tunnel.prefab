@@ -82,8 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6054770b0f8a946a923d85960a4559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topHeight: 0
-  peakIntensity: .00999999978
+  topHeight: 1
+  peakIntensity: .200000003
   peakFrequency: 1
   spikeTop: 4
   spikeIntensity: 3

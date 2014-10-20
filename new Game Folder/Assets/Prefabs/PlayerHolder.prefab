@@ -101,7 +101,7 @@ GameObject:
   - 82: {fileID: 8200000}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .986207008, g: 1, b: 0, a: .0196078438}
+  m_BackGroundColor: {r: 0, g: .0156862754, b: .0117647061, a: 1}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -299,9 +299,9 @@ AudioSource:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 478e2413c46b14f4bbb1f4def5284b09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dd8c7b232137ed248822816b9982ecea, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: .519999981
+  m_Volume: .203999996
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -366,8 +366,8 @@ Light:
   serializedVersion: 3
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
-  m_Range: 10
+  m_Intensity: 1.86000001
+  m_Range: 30
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -439,6 +439,7 @@ MonoBehaviour:
   endScreen: {fileID: 0}
   speedPowerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
   crazyRotationPowerUp: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
+  thwomp: {fileID: 100000, guid: 9d214e21b3a16f14a9fd883966001bca, type: 2}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

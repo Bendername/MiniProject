@@ -21,6 +21,7 @@ public class GameMaster : MonoBehaviour {
     public class Player
     {
         public float movementSpeed = 10f;
+        public float movementSpeedMultiplier = 1f;
         public float rotationSpeed = 50f;
     }
 

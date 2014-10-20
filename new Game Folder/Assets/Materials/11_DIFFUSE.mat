@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: walls
+  m_Name: 11_DIFFUSE
   m_Shader: {fileID: 4800000, guid: da5e553c51b2d7e4b955138b0a7b094d, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
@@ -25,11 +25,11 @@ Material:
           name: _BumpMap
         second:
           m_Texture: {fileID: 2800000, guid: 198d306b4750b284a9055157544d86b1, type: 3}
-          m_Scale: {x: 1, y: 1}
+          m_Scale: {x: .200000003, y: .200000003}
           m_Offset: {x: 0, y: 0}
     m_Floats: {}
     m_Colors:
       data:
         first:
           name: _Color
-        second: {r: 1, g: 1, b: 1, a: .501960814}
+        second: {r: 1, g: 1, b: 1, a: 1}

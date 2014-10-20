@@ -2174,6 +2174,46 @@ Prefab:
   m_RootGameObject: {fileID: 839016937}
   m_IsPrefabParent: 0
   m_IsExploded: 1
+--- !u!1 &1146391102
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1146391103}
+  - 114: {fileID: 1146391104}
+  m_Layer: 0
+  m_Name: Spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1146391103
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146391102}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2015686923}
+  m_RootOrder: 4
+--- !u!114 &1146391104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1146391102}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 942aed2be76a834469dc198d23946c2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  walls: {fileID: 100008, guid: a79fcc48dffdb5d4d9c4789ad245f246, type: 2}
 --- !u!1 &1213690444
 GameObject:
   m_ObjectHideFlags: 0
@@ -3244,7 +3284,8 @@ MonoBehaviour:
   TestEnemy: {fileID: 100000, guid: 97bc079da7b49cb449b68b55ba60cda0, type: 2}
   boidPickup: {fileID: 100000, guid: 370d3fb19b24bd84c8c95a1668fab370, type: 2}
   endScreen: {fileID: 1630428131}
-  powerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
+  speedPowerUp: {fileID: 0}
+  crazyRotationPowerUp: {fileID: 0}
 --- !u!65 &1850694429
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3291,7 +3332,8 @@ MonoBehaviour:
     movementSpeed: 10
     rotationSpeed: 50
   powerUps:
-    spawnChancePercent: 10
+    spawnSpeedChancePercent: 15
+    spawnCrazyRotationChancePercent: 10
     speedBuffModifier: 5
     experienceBonusModifier: 10
   scoring:
@@ -3446,6 +3488,7 @@ Transform:
   - {fileID: 1850694426}
   - {fileID: 24376038}
   - {fileID: 154609854}
+  - {fileID: 1146391103}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!114 &2015686924

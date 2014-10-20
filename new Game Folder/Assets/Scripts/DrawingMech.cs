@@ -17,7 +17,6 @@ public class DrawingMech : MonoBehaviour {
 
 
     List<GameObject> tunnel = new List<GameObject>();
-    GameObject gameObjectTunnel = new GameObject();
 
     List<int> indices = new List<int>();
 	// Use this for initialization

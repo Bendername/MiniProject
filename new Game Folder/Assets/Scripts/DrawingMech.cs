@@ -24,6 +24,7 @@ public class DrawingMech : MonoBehaviour {
         for (int i = 0; i < 4; i++ )
         {
             GameObject wall = new GameObject();
+            wall.name = "wall";
             wall.AddComponent<MeshFilter>();
             wall.AddComponent<MeshRenderer>();
             Mesh mesh;

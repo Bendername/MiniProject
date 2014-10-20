@@ -26,13 +26,14 @@ public class Despawner : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other.name);
         if (other.gameObject.tag != "Drone")
         {
 
-            if (other.name == "grotto")
+            if (other.name == "wall")
             {
                 Debug.Log("Grotto hit! Current position: " + other.transform.position);
-                other.transform.position += new Vector3(0, 0, 100);
+                other.transform.position += new Vector3(0, 0, 78);
                 endScreen.transform.position += new Vector3(0, 0, 20);
                 Debug.Log("New position: " + other.transform.position);
                 int speedPickupRng = Random.Range(0, 100);

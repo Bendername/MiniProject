@@ -3168,6 +3168,14 @@ Prefab:
       propertyPath: speedText
       value: 
       objectReference: {fileID: 1480177798}
+    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: player.rotationSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: powerUps.spawnCrazyRotationChancePercent
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
   m_RootGameObject: {fileID: 1963854455}
@@ -3508,10 +3516,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player:
     movementSpeed: 25
-    rotationSpeed: 50
+    rotationSpeed: 0
   powerUps:
     spawnSpeedChancePercent: 15
-    spawnCrazyRotationChancePercent: 10
+    spawnCrazyRotationChancePercent: 0
     speedBuffModifier: 5
     experienceBonusModifier: 10
   scoring:

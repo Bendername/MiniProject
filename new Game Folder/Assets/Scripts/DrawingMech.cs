@@ -39,7 +39,8 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-            mesh.uv = new Vector2[mesh.vertexCount];
+            Vector2[] uvs = new Vector2[] {new Vector2(0,0), new Vector2(0,width), new Vector2(height, 0), new Vector2(height, width)  };
+            mesh.uv = uvs;
             normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
         //    startVertices.Add(placeHolder);
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
@@ -141,10 +142,15 @@ public class DrawingMech : MonoBehaviour {
         return mesh;
     }
 
-    Mesh addFunnel(Vector3[] vertices, int[] triangles)
+    Mesh addFunnel(Vector3[] vertices, int[] triangles, int height)
     {
         Mesh mesh = new Mesh();
-        return mesh;
+        for (int i = 0; i < height; i++)
+        {
+          //  vertices[vertices.Length + i] = 
+        }
+
+            return mesh;
  
     }
 }

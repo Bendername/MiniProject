@@ -7,7 +7,6 @@ public class ThwompAI : MonoBehaviour {
 
 
 		StateRoutine currentRoutine;
-		WaitForSeconds w = new WaitForSeconds (1.0f);
         GameObject player; 
 
 		IEnumerator Start ()
@@ -25,10 +24,11 @@ public class ThwompAI : MonoBehaviour {
 		IEnumerator StartState ()
 		{
 			Debug.Log ("Searching for Enemy");
-			yield return w;
+			yield return new WaitForSeconds(1.0f);
 
             if((transform.position.z - player.transform.position.z) < 40)
 			    currentRoutine = RunningState;
+
 		}
 
 
@@ -36,8 +36,11 @@ public class ThwompAI : MonoBehaviour {
 		{
 
             Debug.Log("Player found!");
-            yield return w;
+		transform.LookAt (GameMaster.playerObject.transform.position);
+		rigidbody.velocity = GameMaster.playerObject.transform.position - transform.position;
 
+			yield return new WaitForSeconds(1.0f);
+			
             currentRoutine = EndState;
 		}
 
@@ -45,7 +48,7 @@ public class ThwompAI : MonoBehaviour {
 		IEnumerator EndState ()
 		{
 			Debug.Log ("Killed?");
-			yield return w;
+		yield return new WaitForSeconds(1.0f);
 
 			enabled = false;
 		}

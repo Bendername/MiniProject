@@ -47,7 +47,6 @@ public class Despawner : MonoBehaviour {
                 int speedPickupRng = Random.Range(0, 100);
                 int crazyRotationPickupRng = Random.Range(0, 100);
                 int thwompRng = Random.Range(0, 100);
-                other.transform.position += new Vector3(0, 0, 78);
 
                 Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 if (speedPickupRng < GameMaster.GetPowerUpValues().spawnSpeedChancePercent)

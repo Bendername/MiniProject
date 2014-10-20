@@ -66,6 +66,8 @@ public class DrawingMech : MonoBehaviour {
 
 	}
 
+    
+
     public IEnumerator RecalculateVertices()
     {
         for (int i = 0; i < 4; i++)
@@ -137,5 +139,12 @@ public class DrawingMech : MonoBehaviour {
         mesh.triangles = indicesCollection.ToArray();
 
         return mesh;
+    }
+
+    Mesh addFunnel(Vector3[] vertices, int[] triangles)
+    {
+        Mesh mesh = new Mesh();
+        return mesh;
+ 
     }
 }

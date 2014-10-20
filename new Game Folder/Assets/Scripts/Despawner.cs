@@ -27,7 +27,10 @@ public class Despawner : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+		Vector3 myPos = transform.position;
+		Vector3 playerPos = GameMaster.playerObject.transform.position;
+		myPos.z = playerPos.z - 100;
+		transform.position = myPos;
 	}
 
     void OnTriggerEnter(Collider other)

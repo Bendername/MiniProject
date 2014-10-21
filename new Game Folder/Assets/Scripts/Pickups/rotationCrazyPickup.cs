@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class rotationCrazyPickup : PickupBase {
+public class slingShotPowerUp : PickupBase {
 
     public override void OnPickedUp()
     {
 
-        PlayerControl.FlipRotation();
+        Debug.Log("Slignshotting!");
 
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 114: {fileID: 11400000}
   m_Layer: 0
-  m_Name: rotationCrazyPickup
+  m_Name: slingShotPowerUp
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +70,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 100000, guid: 5aef8dc26a531174589370a085518280, type: 2}
+  FadeSpeed: 0
+  fadeOut: 1
+  playSound: 1
+  rotateIdle: 1
+  rotateIdleSpeed: 50
+  mat: {fileID: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

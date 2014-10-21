@@ -13,7 +13,7 @@ public class Despawner : MonoBehaviour {
     PickupSpawner pSpawner;
     public GameObject endScreen;
     public GameObject speedPowerUp;
-    public GameObject crazyRotationPowerUp;
+    public GameObject slingShotPowerUp;
     public GameObject thwomp;
 
     void Awake()
@@ -51,8 +51,8 @@ public class Despawner : MonoBehaviour {
                 Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 if (speedPickupRng < GameMaster.GetPowerUpValues().spawnSpeedChancePercent)
                     Instantiate(speedPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
-                if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent) 
-                    Instantiate(crazyRotationPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
+                if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent)
+                    Instantiate(slingShotPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
                 if(thwompRng < GameMaster.EnemyValues().thwompChance)
                     Instantiate(thwomp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
 

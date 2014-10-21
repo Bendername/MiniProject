@@ -38,7 +38,7 @@ public class UIScoring : MonoBehaviour {
         scoreText.text = score.ToString("0.000");
         comboText.text = "x" + comboMultiplier.ToString("0.0");
         speedText.text = "x" + speedMultiplier.ToString("0.0");
-
+        GameMaster.SetScore(score);
 	}
 
     public static void EndCombo()

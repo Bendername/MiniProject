@@ -1344,7 +1344,7 @@ AudioSource:
   m_GameObject: {fileID: 824082983}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: dd8c7b232137ed248822816b9982ecea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 478e2413c46b14f4bbb1f4def5284b09, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .203999996
   m_Pitch: 1
@@ -2658,6 +2658,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 8200000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 478e2413c46b14f4bbb1f4def5284b09, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
   m_RootGameObject: {fileID: 2105409298}
@@ -3649,6 +3653,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cacef9ffb961247b58bfcface65d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game:
+    isTitleScreen: 0
   player:
     movementSpeed: 25
     movementSpeedMultiplier: 1
@@ -3665,6 +3671,7 @@ MonoBehaviour:
     SpeedMultiplier: .100000001
   enemies:
     thwompChance: 10
+  Score: 0
 --- !u!4 &1963854457
 Transform:
   m_ObjectHideFlags: 0

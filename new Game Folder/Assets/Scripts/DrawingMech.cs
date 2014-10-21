@@ -22,11 +22,18 @@ public class DrawingMech : MonoBehaviour {
     List<GameObject> tunnel = new List<GameObject>();
     Vector3 normal;
 
+    Mesh initialMesh;
+    Vector2[] initialUV;
+
+
     List<int> indices = new List<int>();
 	// Use this for initialization
     void Start()
     {
         wallMaterial = GetComponent<MeshRenderer>().material;
+        initialMesh = createSquareMesh(width, height);
+        initialMesh.RecalculateNormals();
+        initialUV = CreateUVs().ToArray();
         for (int i = 0; i < 4; i++)
         {
             GameObject wall = new GameObject();
@@ -43,19 +50,16 @@ public class DrawingMech : MonoBehaviour {
 
             wall.AddComponent<MeshFilter>();
             wall.AddComponent<MeshRenderer>();
-            Mesh mesh;
-            mesh = createSquareMesh(width, height);
-            mesh.RecalculateNormals();
+            Mesh mesh = new Mesh();
+            mesh.vertices = initialMesh.vertices;
+            mesh.triangles = initialMesh.triangles;
             normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(spikeTop/4, spikeTop);
             mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
             mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
             mesh.RecalculateNormals();
-
-
-            mesh.uv = CreateUVs().ToArray();
-
+            mesh.uv = initialUV;
             wall.GetComponent<MeshRenderer>().material = wallMaterial;
             wall.GetComponent<MeshFilter>().mesh = mesh;
             wall.transform.Rotate(new Vector3(90 * i, 0, 0));
@@ -67,11 +71,12 @@ public class DrawingMech : MonoBehaviour {
         tunnel[2].transform.position = tunnel[0].transform.position + new Vector3(0, 20f, -16.585f);
         tunnel[1].transform.position = tunnel[0].transform.position + new Vector3(0, 1.5f, -18.5f);
         transform.Rotate(new Vector3(0, -90, 0));
-
+            
     }
 
 	// Update is called once per frame
-	void Update () {
+	void Update ()
+    {
 
 	}
 
@@ -91,7 +96,6 @@ public class DrawingMech : MonoBehaviour {
         {
             UVs.Add(new Vector2(-1, i));
         }
-
             return UVs;
  
     }
@@ -105,9 +109,9 @@ public class DrawingMech : MonoBehaviour {
     {
         for (int i = 0; i < 4; i++)
         {
-            Mesh mesh;
-            mesh = createSquareMesh(width, height);
-            mesh.RecalculateNormals();
+            Mesh mesh = new Mesh();
+            mesh.vertices = initialMesh.vertices;
+            mesh.triangles = initialMesh.triangles;
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(spikeTop / 4, spikeTop);
@@ -115,12 +119,11 @@ public class DrawingMech : MonoBehaviour {
             mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
             yield return null;
             mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
-            mesh.uv = CreateUVs().ToArray();
             mesh.RecalculateNormals();
-            tunnel[i].GetComponent<MeshRenderer>().material = wallMaterial;
-            tunnel[i].GetComponent<MeshFilter>().mesh = mesh;
-            Destroy(tunnel[i].GetComponent<MeshCollider>());
-            tunnel[i].AddComponent<MeshCollider>();
+            mesh.uv = initialUV;
+            tunnel[i].renderer.material = wallMaterial;
+            tunnel[i].GetComponent<MeshFilter>().sharedMesh = mesh;
+            tunnel[i].GetComponent<MeshCollider>().sharedMesh = mesh;
         }
     }
 

@@ -8,7 +8,7 @@ public class UITitleScreen : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        highscore.text = PlayerPrefs.GetFloat("highscore").ToString(); ;
+        highscore.text = GameMaster.GetHighscore().ToString();
 	}
 	
 	// Update is called once per frame

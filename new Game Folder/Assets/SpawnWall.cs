@@ -25,7 +25,7 @@ public class SpawnWall : MonoBehaviour {
 
     int i = 0;
 	// Update is called once per frame
-	void Update () {
+	void LateUpdate () {
         if(i == 0)
         {
             for (int k = 0; k < wallList.Count; k++)

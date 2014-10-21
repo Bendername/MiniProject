@@ -256,7 +256,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!54 &5400002
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -445,6 +445,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bf3f3df1f990f864cb58b43e932696c1, type: 2}
   - {fileID: 2100000, guid: 0fbfb482d49e2084aa824b7a0dd74943, type: 2}
   - {fileID: 2100000, guid: 9df5210f8b413f648b14daa57fa9b070, type: 2}
+  - {fileID: 2100000, guid: a8957b36f215f6744afc8486e122d01c, type: 2}
+  - {fileID: 2100000, guid: e74783b0c1b1afe40ad2575d82b452e9, type: 2}
+  - {fileID: 2100000, guid: e58752ddc304b4f4e8ba23efee83b952, type: 2}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

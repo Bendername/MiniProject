@@ -46,7 +46,14 @@ public class Despawner : MonoBehaviour {
                 
                 StartCoroutine(other.GetComponentInParent<DrawingMech>().RecalculateVertices());
                 other.transform.position += new Vector3(0, 0, 180);
-                if (GameMaster.GetScore() > 3000)
+                 
+                if (GameMaster.GetScore() > 20000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[6]);
+                else if (GameMaster.GetScore() > 10000 && GameMaster.GetScore() < 15000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[5]);
+                else if (GameMaster.GetScore() > 7000 && GameMaster.GetScore() < 10000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[4]);
+                else if (GameMaster.GetScore() > 5000 && GameMaster.GetScore() < 7000)
                     other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[3]);
                 else if (GameMaster.GetScore() > 2000 && GameMaster.GetScore() < 3000)
                     other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[2]);

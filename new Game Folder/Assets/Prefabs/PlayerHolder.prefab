@@ -443,6 +443,8 @@ MonoBehaviour:
   materials:
   - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
   - {fileID: 2100000, guid: bf3f3df1f990f864cb58b43e932696c1, type: 2}
+  - {fileID: 2100000, guid: 0fbfb482d49e2084aa824b7a0dd74943, type: 2}
+  - {fileID: 2100000, guid: 9df5210f8b413f648b14daa57fa9b070, type: 2}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

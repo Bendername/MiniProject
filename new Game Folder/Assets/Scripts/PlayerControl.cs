@@ -62,6 +62,7 @@ public class PlayerControl : MonoBehaviour {
     public static void AddMoveSpeedBonus(float bonus)
     {
         staticRef.movementSpeed += bonus;
+		staticRef.bgMusic.pitch = 1 + staticRef.movementSpeed / 50;
     }
 
     public static float GetMovementSpeed()

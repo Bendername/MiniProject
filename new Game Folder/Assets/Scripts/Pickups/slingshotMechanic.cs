@@ -30,7 +30,7 @@ public class slingshotMechanic : MonoBehaviour {
         else if(!done)
         {
             done = true;
-            PlayerControl.AddMoveSpeedBonus(100 + oldSpeed);
+            PlayerControl.AddMoveSpeedBonus(50 + oldSpeed);
         }
     }
 }

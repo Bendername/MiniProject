@@ -43,10 +43,25 @@ public class Despawner : MonoBehaviour {
 
             if (other.name == "baseWall")
             {
+                
                 StartCoroutine(other.GetComponentInParent<DrawingMech>().RecalculateVertices());
                 other.transform.position += new Vector3(0, 0, 180);
-
-                    other.GetComponent<MeshRenderer>().material = materials[1];
+                 
+                if (GameMaster.GetScore() > 20000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[6]);
+                else if (GameMaster.GetScore() > 10000 && GameMaster.GetScore() < 15000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[5]);
+                else if (GameMaster.GetScore() > 7000 && GameMaster.GetScore() < 10000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[4]);
+                else if (GameMaster.GetScore() > 5000 && GameMaster.GetScore() < 7000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[3]);
+                else if (GameMaster.GetScore() > 2000 && GameMaster.GetScore() < 3000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[2]);
+                else if (GameMaster.GetScore() > 1000 && GameMaster.GetScore() < 2000)
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[1]);
+                else
+                    other.GetComponentInParent<DrawingMech>().ChangeMaterial(materials[0]);
+                
                 
                 //endScreen.transform.position += new Vector3(0, 0, 20);
                 int speedPickupRng = Random.Range(0, 100);

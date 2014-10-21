@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 100000, guid: 2d9cf50872307624fb5f1625dd5ff838, type: 2}
-  FadeSpeed: 25
+  FadeDistance: 75
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

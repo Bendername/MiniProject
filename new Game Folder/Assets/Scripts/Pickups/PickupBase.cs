@@ -8,7 +8,7 @@ public class PickupBase : MonoBehaviour
     GameObject pickupSound;
 
 	[SerializeField]
-	float FadeSpeed;
+	float FadeDistance;
 
 	bool fadeOut = true;
     bool playSound = true;
@@ -37,7 +37,7 @@ public class PickupBase : MonoBehaviour
 
 		if (fadeOut) {
 			Color clr = mat.color;
-			clr.a = Vector3.Distance(GameMaster.playerObject.transform.position,transform.position) / FadeSpeed;
+			clr.a = Vector3.Distance(GameMaster.playerObject.transform.position,transform.position) / FadeDistance;
 			mat.color = clr;
 		}
 

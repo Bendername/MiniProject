@@ -5,11 +5,13 @@ public class slingshotMechanic : MonoBehaviour {
 
     private float time;
     bool done = false;
+    private float oldSpeed;
 
 	// Use this for initialization
 	void Start () {
         Debug.Log("SLINGSHOT MECHANIC!");
         time = Time.deltaTime;
+        oldSpeed = GameMaster.GetPlayerValues().movementSpeed;
 	}
 	
 	// Update is called once per frame
@@ -24,12 +26,11 @@ public class slingshotMechanic : MonoBehaviour {
 
 
             time += Time.deltaTime;
-            Debug.Log(time);
         }
         else if(!done)
         {
             done = true;
-            PlayerControl.AddMoveSpeedBonus(100);
+            PlayerControl.AddMoveSpeedBonus(100 + oldSpeed);
         }
     }
 }

@@ -33,11 +33,11 @@ public class UIScoring : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        score += scoreValues.scoreToTime * Time.deltaTime * speedMultiplier * comboMultiplier;
+        score += scoreValues.scoreToTime * Time.deltaTime * GameMaster.GetPlayerValues().movementSpeed * comboMultiplier;
         boidsText.text = PlayerControl.DroneCount().ToString();
         scoreText.text = Mathf.Ceil(score).ToString();
         comboText.text = "x" + comboMultiplier.ToString("0.0");
-        speedText.text = "x" + speedMultiplier.ToString("0.0");
+        speedText.text = "x" + GameMaster.GetPlayerValues().movementSpeed.ToString("0.0");
         GameMaster.SetScore(score);
 	}
 
@@ -56,4 +56,5 @@ public class UIScoring : MonoBehaviour {
     {
 		staticRef.speedMultiplier += GameMaster.GetScoringValues().SpeedMultiplier;
     }
+
 }

@@ -4,7 +4,7 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
     static PlayerControl staticRef;
     private float rotationSpeed;
-    private float movementSpeed;
+    private float movementSpeed = 25f;
     private float moveSpeedBonus = 0f;
     private bool rotationIdle = true;
     private float crazyRotationSpeed = 10f;
@@ -62,6 +62,11 @@ public class PlayerControl : MonoBehaviour {
     public static void AddMoveSpeedBonus(float bonus)
     {
         staticRef.movementSpeed += bonus;
+    }
+
+    public static float GetMovementSpeed()
+    {
+        return staticRef.movementSpeed;
     }
 
     public static void AddDrone()

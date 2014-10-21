@@ -40,5 +40,10 @@ public class PickupSpawner {
         return lastPosition;
     }
 
+	public Vector3 GetRandomPosition(float Z)
+	{
+		return new Vector3 (Random.Range (min.x, max.x), Random.Range (min.y, max.y), Z);
+	}
+
     
 }

@@ -428,6 +428,7 @@ GameObject:
   - 224: {fileID: 1029121658}
   - 223: {fileID: 1029121660}
   - 114: {fileID: 1029121659}
+  - 114: {fileID: 1029121661}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -492,6 +493,21 @@ Canvas:
   m_ReceivesEvents: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!114 &1029121661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1029121657}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f64e254cd50b9cc459f3a677da51d3a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 1487501055}
+  boidsText: {fileID: 1644310776}
+  comboText: {fileID: 2049535893}
+  speedText: {fileID: 1480177798}
 --- !u!1 &1216730249
 GameObject:
   m_ObjectHideFlags: 0
@@ -1213,6 +1229,14 @@ Prefab:
       propertyPath: powerUps.spawnCrazyRotationChancePercent
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: game.isTitleScreen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      propertyPath: scoring.BoidComboMultiplier
+      value: .300000012
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
   m_RootGameObject: {fileID: 1963854455}
@@ -1391,8 +1415,8 @@ MonoBehaviour:
   scoring:
     scoreToTime: 1
     scorePerBoid: 5
-    BoidComboMultiplier: .100000001
-    SpeedMultiplier: .100000001
+    BoidComboMultiplier: .300000012
+    SpeedMultiplier: .300000012
   enemies:
     thwompChance: 10
   Score: 0
@@ -1417,13 +1441,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1963854455}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64e254cd50b9cc459f3a677da51d3a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59b2ed949f5542a4f8c24f077af44d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1487501055}
-  boidsText: {fileID: 1644310776}
-  comboText: {fileID: 2049535893}
-  speedText: {fileID: 1480177798}
+  highscore: {fileID: 0}
 --- !u!1 &2049535891
 GameObject:
   m_ObjectHideFlags: 0

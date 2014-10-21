@@ -3,10 +3,12 @@ using System.Collections;
 
 public class slingShotPowerUp : PickupBase {
 
+    public GameObject prefab;
+
     public override void OnPickedUp()
     {
 
-        Debug.Log("Slignshotting!");
+        Instantiate(prefab);
 
     }
 }

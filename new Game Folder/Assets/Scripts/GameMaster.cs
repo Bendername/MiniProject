@@ -74,6 +74,7 @@ public class GameMaster : MonoBehaviour {
 
     public static Player GetPlayerValues()
     {
+        gameMasterRef.player.movementSpeed = PlayerControl.GetMovementSpeed();
         return gameMasterRef.player;
     }
 

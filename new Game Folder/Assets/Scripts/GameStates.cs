@@ -11,6 +11,6 @@ public class GameStates : MonoBehaviour {
 
     public void ExitGame()
     {
-        Application.CancelQuit();
+        Application.Quit();
     }
 }

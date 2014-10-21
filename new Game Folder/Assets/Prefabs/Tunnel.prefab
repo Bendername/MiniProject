@@ -86,8 +86,8 @@ MonoBehaviour:
   peakIntensity: .200000003
   peakFrequency: 1
   spikeTop: 4
-  spikeIntensity: 3
-  peakCount: 1
+  spikeIntensity: 2
+  peakCount: 3
   height: 20
   width: 20
 --- !u!1001 &100100000

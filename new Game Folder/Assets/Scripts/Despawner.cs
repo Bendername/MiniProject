@@ -16,6 +16,8 @@ public class Despawner : MonoBehaviour {
     public GameObject slingShotPowerUp;
     public GameObject thwomp;
 
+    public Material[] materials;
+
     void Awake()
     {
         pSpawner = new PickupSpawner(new Vector2(-5, 2), new Vector2(9, 17));
@@ -43,18 +45,21 @@ public class Despawner : MonoBehaviour {
             {
                 StartCoroutine(other.GetComponentInParent<DrawingMech>().RecalculateVertices());
                 other.transform.position += new Vector3(0, 0, 180);
+
+                    other.GetComponent<MeshRenderer>().material = materials[1];
+                
                 //endScreen.transform.position += new Vector3(0, 0, 20);
                 int speedPickupRng = Random.Range(0, 100);
-                int crazyRotationPickupRng = Random.Range(0, 100);
+                int slingShotPickupRng = Random.Range(0, 100);
                 int thwompRng = Random.Range(0, 100);
 
-                Instantiate(TestEnemy, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
+				Instantiate(TestEnemy, pSpawner.GetRandomPosition(other.gameObject.transform.position.z + 180), Quaternion.Euler(new Vector3(0,180,0)));
                 if (speedPickupRng < GameMaster.GetPowerUpValues().spawnSpeedChancePercent)
-                    Instantiate(speedPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
-                if (crazyRotationPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent)
-                    Instantiate(slingShotPowerUp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
+					Instantiate(speedPowerUp, pSpawner.GetRandomPosition(other.gameObject.transform.position.z + 180), new Quaternion());
+                if (slingShotPickupRng < GameMaster.GetPowerUpValues().spawnCrazyRotationChancePercent)
+					Instantiate(slingShotPowerUp, pSpawner.GetRandomPosition(other.gameObject.transform.position.z + 180), new Quaternion());
                 if(thwompRng < GameMaster.EnemyValues().thwompChance)
-                    Instantiate(thwomp, new Vector3(Random.Range(-4, 5), Random.Range(1, 10), other.gameObject.transform.position.z + 180), new Quaternion());
+					Instantiate(thwomp, pSpawner.GetRandomPosition(other.gameObject.transform.position.z + 180), new Quaternion());
 
                 
                 Vector2 boidPos = pSpawner.GetNextBoidPosition();

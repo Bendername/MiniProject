@@ -44,16 +44,16 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
+            normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
+            mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
+            float random = Random.Range(spikeTop/4, spikeTop);
+            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
+            mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
+            mesh.RecalculateNormals();
 
 
             mesh.uv = CreateUVs().ToArray();
-            normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
-            mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
-            float random = Random.Range(3f, 10f);
-            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
-
-            mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
-            mesh.RecalculateNormals();
+            
             wall.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
             wall.GetComponent<MeshFilter>().mesh = mesh;
             wall.transform.Rotate(new Vector3(90 * i, 0, 0));
@@ -85,8 +85,12 @@ public class DrawingMech : MonoBehaviour {
                 UVs.Add(new Vector2(x, y));
             }
         }
+        for (int i = 0; i <= height; i++)
+        {
+            UVs.Add(new Vector2(-1, i));
+        }
 
-        return UVs;
+            return UVs;
  
     }
 
@@ -97,13 +101,14 @@ public class DrawingMech : MonoBehaviour {
             Mesh mesh;
             mesh = createSquareMesh(width, height);
             mesh.RecalculateNormals();
-            mesh.uv = CreateUVs().ToArray();
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);
             yield return null;
-            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 2));
+            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
             yield return null;
+            mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
+            mesh.uv = CreateUVs().ToArray();
             mesh.RecalculateNormals();
             tunnel[i].GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
             tunnel[i].GetComponent<MeshFilter>().mesh = mesh;

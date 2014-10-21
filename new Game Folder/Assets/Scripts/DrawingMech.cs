@@ -14,6 +14,7 @@ public class DrawingMech : MonoBehaviour {
     public int peakCount;
     public int height;
     public int width;
+    public Material wallMaterial;
 
 
     List<Vector3[]> startVertices = new List<Vector3[]>();
@@ -25,6 +26,7 @@ public class DrawingMech : MonoBehaviour {
 	// Use this for initialization
     void Start()
     {
+        wallMaterial = GetComponent<MeshRenderer>().material;
         for (int i = 0; i < 4; i++)
         {
             GameObject wall = new GameObject();
@@ -53,8 +55,8 @@ public class DrawingMech : MonoBehaviour {
 
 
             mesh.uv = CreateUVs().ToArray();
-            
-            wall.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+
+            wall.GetComponent<MeshRenderer>().material = wallMaterial;
             wall.GetComponent<MeshFilter>().mesh = mesh;
             wall.transform.Rotate(new Vector3(90 * i, 0, 0));
             wall.AddComponent<MeshCollider>();
@@ -94,6 +96,11 @@ public class DrawingMech : MonoBehaviour {
  
     }
 
+    public void ChangeMaterial(Material newMaterial)
+    {
+        wallMaterial = newMaterial;
+    }
+
     public IEnumerator RecalculateVertices()
     {
         for (int i = 0; i < 4; i++)
@@ -103,14 +110,14 @@ public class DrawingMech : MonoBehaviour {
             mesh.RecalculateNormals();
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
-            float random = Random.Range(3f, 10f);
+            float random = Random.Range(spikeTop / 4, spikeTop);
             yield return null;
             mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
             yield return null;
             mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
             mesh.uv = CreateUVs().ToArray();
             mesh.RecalculateNormals();
-            tunnel[i].GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
+            tunnel[i].GetComponent<MeshRenderer>().material = wallMaterial;
             tunnel[i].GetComponent<MeshFilter>().mesh = mesh;
             Destroy(tunnel[i].GetComponent<MeshCollider>());
             tunnel[i].AddComponent<MeshCollider>();

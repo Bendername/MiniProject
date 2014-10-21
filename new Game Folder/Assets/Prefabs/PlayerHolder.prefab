@@ -299,7 +299,7 @@ AudioSource:
   m_GameObject: {fileID: 100010}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: dd8c7b232137ed248822816b9982ecea, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 478e2413c46b14f4bbb1f4def5284b09, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .203999996
   m_Pitch: 1
@@ -438,8 +438,11 @@ MonoBehaviour:
   boidPickup: {fileID: 100000, guid: 370d3fb19b24bd84c8c95a1668fab370, type: 2}
   endScreen: {fileID: 0}
   speedPowerUp: {fileID: 100000, guid: 385689f51607dfc48992131bbdc7c643, type: 2}
-  crazyRotationPowerUp: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
+  slingShotPowerUp: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
   thwomp: {fileID: 100000, guid: 9d214e21b3a16f14a9fd883966001bca, type: 2}
+  materials:
+  - {fileID: 2100000, guid: 681d8210460730744a2364a6c5f4be39, type: 2}
+  - {fileID: 2100000, guid: bf3f3df1f990f864cb58b43e932696c1, type: 2}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

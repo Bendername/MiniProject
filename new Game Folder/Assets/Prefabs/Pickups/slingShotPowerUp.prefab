@@ -71,11 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupSound: {fileID: 100000, guid: 5aef8dc26a531174589370a085518280, type: 2}
   FadeSpeed: 0
-  fadeOut: 1
-  playSound: 1
-  rotateIdle: 1
-  rotateIdleSpeed: 50
-  mat: {fileID: 0}
+  prefab: {fileID: 100000, guid: 4ee877f41a466e14ab02a5c57d3c4b34, type: 2}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

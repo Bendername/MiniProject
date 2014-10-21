@@ -18,7 +18,6 @@ public class EnemyBase : MonoBehaviour {
         {
             //player bumped into me, player dies
             Instantiate(DeathGUI);
-            Destroy(gameObject);
         }
         else if (hitBy.GetComponent<Despawner>())
         {

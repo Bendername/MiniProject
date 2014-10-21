@@ -23,7 +23,7 @@ public class ThwompAI : MonoBehaviour {
 
 		IEnumerator StartState ()
 		{
-			Debug.Log ("Searching for Enemy");
+
 			yield return new WaitForSeconds(1.0f);
 
             if((transform.position.z - player.transform.position.z) < 80)
@@ -35,9 +35,9 @@ public class ThwompAI : MonoBehaviour {
 		IEnumerator RunningState ()
 		{
 
-            Debug.Log("Player found!");
+
 		    transform.LookAt (GameMaster.playerObject.transform.position);
-		    rigidbody.velocity = (GameMaster.playerObject.transform.position - transform.position) * GameMaster.GetPlayerValues().movementSpeedMultiplier;
+		    rigidbody.velocity = ((GameMaster.playerObject.transform.position - transform.position) * GameMaster.GetPlayerValues().movementSpeedMultiplier) / 1.5f;
             audio.Play();
 
 			yield return new WaitForSeconds(1.0f);
@@ -48,7 +48,7 @@ public class ThwompAI : MonoBehaviour {
 
 		IEnumerator EndState ()
 		{
-			Debug.Log ("Killed?");
+
 		yield return new WaitForSeconds(1.0f);
 
 			enabled = false;

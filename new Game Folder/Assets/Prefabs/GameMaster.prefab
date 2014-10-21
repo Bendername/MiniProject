@@ -40,19 +40,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8cacef9ffb961247b58bfcface65d50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game:
+    isTitleScreen: 1
   player:
     movementSpeed: 25
+    movementSpeedMultiplier: 1
     rotationSpeed: 50
   powerUps:
     spawnSpeedChancePercent: 15
-    spawnCrazyRotationChancePercent: 10
+    spawnCrazyRotationChancePercent: 0
     speedBuffModifier: 5
     experienceBonusModifier: 10
   scoring:
     scoreToTime: 1
     scorePerBoid: 5
     BoidComboMultiplier: .100000001
-    SpeedMultiplier: .100000001
+    SpeedMultiplier: .300000012
+  enemies:
+    thwompChance: 10
+  Score: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -61,13 +67,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f64e254cd50b9cc459f3a677da51d3a6, type: 3}
+  m_Script: {fileID: 11500000, guid: 59b2ed949f5542a4f8c24f077af44d39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 0}
-  boidsText: {fileID: 0}
-  comboText: {fileID: 0}
-  speedText: {fileID: 0}
+  highscore: {fileID: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

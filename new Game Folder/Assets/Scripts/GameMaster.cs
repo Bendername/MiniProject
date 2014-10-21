@@ -4,17 +4,31 @@ using System.Collections;
 public class GameMaster : MonoBehaviour {
 
 
+    public Game game;
     public Player player;
     public PowerUps powerUps;
     public Scoring scoring;
     public Enemies enemies;
+    public float Score;
     static GameMaster gameMasterRef;
 	public static GameObject playerObject;
 
     public void Awake(){
         gameMasterRef = this;
+    }
 
-        Screen.showCursor = false;
+    public void Start()
+    {
+        if (!this.game.isTitleScreen)
+            Screen.showCursor = false;
+        else
+            Screen.showCursor = true;
+    }
+
+    [System.Serializable]
+    public class Game
+    {
+        public bool isTitleScreen = false;
     }
 
     [System.Serializable]
@@ -67,8 +81,25 @@ public class GameMaster : MonoBehaviour {
     {
         return gameMasterRef.scoring;
     }
+    public static Game GetGameValues()
+    {
+        return gameMasterRef.game;
+    }
 
+    public static void SetScore(float score)
+    {
+        gameMasterRef.Score = score;
+    }
 
+    public static float GetScore()
+    {
+        return gameMasterRef.Score;
+    }
+
+	public static float GetHighscore()
+	{
+		return PlayerPrefs.GetFloat("Highscore");
+	}
 
 
 }

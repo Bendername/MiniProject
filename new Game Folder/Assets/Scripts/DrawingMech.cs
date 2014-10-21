@@ -31,8 +31,13 @@ public class DrawingMech : MonoBehaviour {
             if (i == 0)
             {
                 wall.name = "baseWall";
+                wall.tag = "Wall";
             }
-            else { wall.name = "offWall"; }
+            else 
+            { 
+                wall.name = "offWall";
+                wall.tag = "Wall";
+            }
 
             wall.AddComponent<MeshFilter>();
             wall.AddComponent<MeshRenderer>();
@@ -43,11 +48,11 @@ public class DrawingMech : MonoBehaviour {
 
             mesh.uv = CreateUVs().ToArray();
             normal = Vector3.Cross(mesh.vertices[0] - mesh.vertices[1], mesh.vertices[0] - mesh.vertices[width + 1]);
-        //    startVertices.Add(placeHolder);
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(3f, 10f);
-
             mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 2));
+
+        //    mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
             mesh.RecalculateNormals();
             wall.GetComponent<MeshRenderer>().material = GetComponent<MeshRenderer>().material;
             wall.GetComponent<MeshFilter>().mesh = mesh;
@@ -162,16 +167,30 @@ public class DrawingMech : MonoBehaviour {
     {
         Mesh mesh = new Mesh();
         int verticesLength = vertices.Length;
+        List<int> triangleList = new List<int>(triangles);
+        List<Vector3> vertexList = new List<Vector3>(vertices);
+
         for (int i = 0; i < height; i++)
         {
-            vertices[vertices.Length + i] = new Vector3(-1, height, -3);
+            vertexList.Add(new Vector3(-1, i, 1));
         }
-        for (int i = 0; i < vertices.Length - verticesLength;  i++)
-        {//This doesn't work
-            triangles[triangles.Length] = i;
-            triangles[triangles.Length + 1] = i * width;
-            triangles[triangles.Length + 2] = i + verticesLength;
+        for (int i = 0; i < height - 1; i++)
+        {
+            if (i == 0)
+            {
+                triangleList.Add(width + 1);
+                triangleList.Add(0);
+                triangleList.Add(i + verticesLength);
+            }
+          /*  else
+            {
+                triangleList.Add(width + (i * width) + 1);
+                triangleList.Add((i * width)+1);
+                triangleList.Add(i + verticesLength);
+            }*/
         }
+        mesh.vertices = vertexList.ToArray();
+        mesh.triangles = triangleList.ToArray();
 
             return mesh;
  

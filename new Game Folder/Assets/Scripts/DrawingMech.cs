@@ -77,7 +77,10 @@ public class DrawingMech : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-
+        /*if (Input.GetMouseButtonDown(0))
+        {
+            StartCoroutine(RecalculateVertices());
+        }*/
 	}
 
 
@@ -115,8 +118,16 @@ public class DrawingMech : MonoBehaviour {
             yield return null;
             mesh.vertices = VertexTranformer.ModelWall(mesh.vertices, topHeight, peakIntensity, normal);
             float random = Random.Range(spikeTop / 4, spikeTop);
+   
             yield return null;
-            mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
+            if (random > 5)
+            {
+                mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, 1));
+            }
+            else
+            {
+                mesh.vertices = VertexTranformer.CreateSpike(mesh.vertices, random, random - Random.Range(1, random - 1), height, width, Random.Range(0, peakCount));
+            }
             yield return null;
             mesh = addFunnel(mesh.vertices, mesh.triangles, height, width);
             mesh.RecalculateNormals();

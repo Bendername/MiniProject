@@ -387,6 +387,10 @@ Prefab:
       propertyPath: slingShotPowerUp
       value: 
       objectReference: {fileID: 100000, guid: 416c07e05edab3f4091dda60f86f2a27, type: 2}
+    - target: {fileID: 8200000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: dd8c7b232137ed248822816b9982ecea, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fbd523e524c415948baa68fe98c94800, type: 2}
   m_RootGameObject: {fileID: 2105409298}
@@ -550,7 +554,7 @@ AudioSource:
   m_GameObject: {fileID: 824082983}
   m_Enabled: 1
   serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 478e2413c46b14f4bbb1f4def5284b09, type: 3}
+  m_audioClip: {fileID: 8300000, guid: dd8c7b232137ed248822816b9982ecea, type: 3}
   m_PlayOnAwake: 1
   m_Volume: .203999996
   m_Pitch: 1
@@ -1395,6 +1399,9 @@ MonoBehaviour:
   - {fileID: 2100000, guid: bf3f3df1f990f864cb58b43e932696c1, type: 2}
   - {fileID: 2100000, guid: 0fbfb482d49e2084aa824b7a0dd74943, type: 2}
   - {fileID: 2100000, guid: 9df5210f8b413f648b14daa57fa9b070, type: 2}
+  - {fileID: 2100000, guid: a8957b36f215f6744afc8486e122d01c, type: 2}
+  - {fileID: 2100000, guid: e74783b0c1b1afe40ad2575d82b452e9, type: 2}
+  - {fileID: 2100000, guid: e58752ddc304b4f4e8ba23efee83b952, type: 2}
 --- !u!65 &1559874375
 BoxCollider:
   m_ObjectHideFlags: 0

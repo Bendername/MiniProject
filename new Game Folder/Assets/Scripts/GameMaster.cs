@@ -96,6 +96,10 @@ public class GameMaster : MonoBehaviour {
         return gameMasterRef.Score;
     }
 
+	public static float GetHighscore()
+	{
+		return PlayerPrefs.GetFloat("Highscore");
+	}
 
 
 }

@@ -1410,7 +1410,7 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: .0219999999
---- !u!1001 &1753168163
+--- !u!1001 &1930491581
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1450,35 +1450,10 @@ Prefab:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 11400002, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: scoreText
+      propertyPath: highscore
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: boidsText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: comboText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400002, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: speedText
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: player.rotationSpeed
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: powerUps.spawnCrazyRotationChancePercent
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-      propertyPath: game.isTitleScreen
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11400002, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
+      objectReference: {fileID: 1391373606}
+    m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
   m_RootGameObject: {fileID: 1963854455}
   m_IsPrefabParent: 0
@@ -1551,7 +1526,7 @@ Light:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-  m_PrefabInternal: {fileID: 1753168163}
+  m_PrefabInternal: {fileID: 1930491581}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1963854457}
@@ -1569,7 +1544,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 4a472a470a35d574c81be2593cb4692d,
     type: 2}
-  m_PrefabInternal: {fileID: 1753168163}
+  m_PrefabInternal: {fileID: 1930491581}
   m_GameObject: {fileID: 1963854455}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -1591,7 +1566,7 @@ MonoBehaviour:
     scoreToTime: 1
     scorePerBoid: 5
     BoidComboMultiplier: .100000001
-    SpeedMultiplier: .100000001
+    SpeedMultiplier: .300000012
   enemies:
     thwompChance: 10
   Score: 0
@@ -1599,7 +1574,7 @@ MonoBehaviour:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 4a472a470a35d574c81be2593cb4692d, type: 2}
-  m_PrefabInternal: {fileID: 1753168163}
+  m_PrefabInternal: {fileID: 1930491581}
   m_GameObject: {fileID: 1963854455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: .564931035, y: 2.16178513, z: -1.69037938}
@@ -1610,8 +1585,9 @@ Transform:
 --- !u!114 &1963854458
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400002, guid: 4a472a470a35d574c81be2593cb4692d,
+    type: 2}
+  m_PrefabInternal: {fileID: 1930491581}
   m_GameObject: {fileID: 1963854455}
   m_Enabled: 1
   m_EditorHideFlags: 0
